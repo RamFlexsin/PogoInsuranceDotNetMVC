@@ -1,0 +1,66 @@
+﻿@model PogoInsurance.Models.IndexViewModel
+
+@{
+    Layout = null;
+}
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0">
+    <title>Pogo Insurance</title>
+    <link href="~/Content/stylesheet.css" rel="stylesheet" />
+    <link href="~/Content/responsive.css" rel="stylesheet" />
+    <link rel="shortcut icon" href="~/favicon.ico" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/fbb15fc2fb.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!--Header-->
+    <header><a href=""><img src="~/images/logo.png" alt="" /></a></header>
+    <!--Header-->
+    <!--Body-->
+    <div class="mainCont">
+        <div class="container">
+            @using (Html.BeginForm("Index", "Index", FormMethod.Post))
+            {
+                <h1 class="m-50">Let's get started</h1>
+                <div class="form-group m-50">
+                    <h3 class="m-20">
+                        What's your primary zip code?
+                        <i class="tooltip">
+                            ?
+                            <span class="right">In workers' comp, the type of work is referred to as a "class code".</span>
+                        </i>
+                    </h3>
+                    @Html.TextBoxFor(m => m.PrimaryZipcode, new { @class = "frmInp" })
+                </div>
+                <div class="form-group m-50">
+                    <h3 class="m-20">
+                        What type of work do you do?
+                        <i class="tooltip">
+                            ?
+                            <span class="right">In workers' comp, the type of work is referred to as a "class code".</span>
+                        </i>
+                    </h3>
+                    <div class="srchOuter">
+                        @Html.TextBoxFor(m => m.TypeofWork, new { @class = "frmInp" })
+                        <button type="button" name="button" class="srchIcon"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    </div>
+                </div>
+                <div class="button-grpup">
+                    @*<a href="@Url.Action("coverageoptions", "Index")"  class="nextBtn">Next <i class="fa-solid fa-right-long"></i></a>*@
+                    <button class="nextBtn" type="submit">Next <i class="fa-solid fa-right-long"></i></button>
+                </div>
+            }
+        </div>
+    </div>
+    <!--Body-->
+    <footer>
+        Copyright 2022 / <a href="">Privacy</a> / <a href="">Terms</a>
+    </footer>
+</body>
+
+</html>

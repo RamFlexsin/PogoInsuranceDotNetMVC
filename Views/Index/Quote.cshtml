@@ -1,0 +1,392 @@
+﻿@model PogoInsurance.Models.GetQuoteModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0">
+    <title>Pogo Insurance</title>
+    <link href="~/Content/stylesheet.css" rel="stylesheet" />
+    <link href="~/Content/responsive.css" rel="stylesheet" />
+    <link rel="shortcut icon" href="~/favicon.ico" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/fbb15fc2fb.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <!--Header start from Here-->
+    <header><a href=""><img src="~/images/logo.png" alt="" /></a></header>
+    <!--Header End Here-->
+    <!--Body start from Here-->
+    <div class="mainCont">
+        <div class="quotesContainer">
+            @using (Html.BeginForm("Quote", "Index", FormMethod.Post))
+            {
+                <h1 class="m-50">Your quotes</h1>
+                <h3 class="m-30">Workers' Compensation</h3>
+                <div class="quotesCountBx">
+
+                    <div class="quotesCont_Left">
+                        <div class="compensationOuter">
+                            @for (var i = 0; i < Model.Compensations.Count(); i++)
+                            {
+                            <div class="radioBxOuter compensation">
+                                @Html.RadioButton("SelectedCompensation", @Model.Compensations[i].CompensationId, false, new { Id = @Model.Compensations[i].CompensationId })
+                               
+                                <label for="@Model.Compensations[i].CompensationId">
+                                    <h3>@Model.Compensations[i].CompensationTitle</h3>
+                                    <p>
+                                        @Model.Compensations[i].CompensationDescription<br />
+                                        <strong>Limits: @Model.Compensations[i].CompensationLimits </strong> &nbsp; | &nbsp; <a href="javascript:void(0)" class="quoteDetPop">Details</a>
+                                    </p>
+                                </label>
+
+                                <div class="compensat_amount">
+                                    $@Model.Compensations[i].CompensationAmount.ToString().Split('.').Select(a => a).FirstOrDefault()<sup>.@Model.Compensations[i].CompensationAmount.ToString().Split('.').Select(a => a).LastOrDefault()</sup>
+                                </div>
+
+                                <div class="check"></div>
+                            </div>
+                            }
+
+                        </div>
+                        <div class="generalibrary">
+                            <h2 class="m-10">@Model.GeneralLibility.LibilityTitle <span>Limits: <a href="">$@Model.GeneralLibility.LibilityLimits</a> | <a href="">Edit</a></span></h2>
+                            <p>@Model.GeneralLibility.LibilityDescription</p>
+                        </div>
+                        <div class="generalibrary">
+                            <a href="">+ Add additional coverages</a>
+                        </div>
+                        <div class="generalibrary">
+                            <h2 class="m-10">Your business <span><a href="">Edit App</a></span></h2>
+                            <h5 class="m-10">@Model.BusinessDetail.BusinessName</h5>
+                            <span>@Model.BusinessDetail.BusinessAddress</span>
+                            <span>Employees (not including owners): @Model.BusinessDetail.Employees</span>
+                            <span>Rating Payroll: $@Model.BusinessDetail.RatingPayroll</span>
+                        </div>
+                    </div>
+                    <div class="quotesCount_Right">
+                        <div class="workerCompHd">
+                            <h2>Workers' comp + accident policy</h2>
+                            <span>Solo X</span>
+                        </div>
+                        <div class="policyamountBx">
+                            <div class="policyamount m-50">
+                                <h1>
+                                    $@Model.PolicyAmount.ToString().Split('.').Select(a => a).FirstOrDefault()<sup>.@Model.PolicyAmount.ToString().Split('.').Select(a => a).LastOrDefault()</sup>
+                                </h1>
+                                <span>@Model.Tenure</span>
+                            </div>
+                            <div class="policyStart m-50"><i class="fa-solid fa-calendar-days"></i> Starts: <a href="">@Model.PolicyStartDate.ToString("MMM yyyy")</a></div>
+                            <div class="requestwaiverBtn">
+                                <button class="nextBtn" type="submit">Continue</button>
+                                @* <a href="business-location.html" class="req_waiver">Continue</a>*@
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            }
+        </div>
+    </div>
+    <!--Body End Here-->
+    <!--Footer start from Here-->
+    <footer>
+        Copyright 2022 / <a href="">Privacy</a> / <a href="">Terms</a>
+    </footer>
+    <!--Footer End Here-->
+    <!--Quote Popup-->
+    <div class="overlay" id="quoteDet">
+        <div class="popupContainer">
+            <div class="popupCLose closepop">X</div>
+            <h1 class="m-20">Workers' compensation</h1>
+            <div class="compDetailList">
+                <ul>
+                    <li>
+                        <h2 class="Ques">Solo X <i class="fa-solid fa-angle-down"></i></h2>
+                        <div class="compDetailInn ans">
+                            <p class="m-30">Owner(s) excluded from coverage  |  Accident policy included</p>
+                            <h3 class="m-20">
+                                Employer's Liability Limits
+                                <i class="tooltip">
+                                    ?
+                                    <span class="right">Select the amount of coverage you would like for each individual claim, along with the total limit for all claims in a given policy term, for each employee.</span>
+                                </i>
+                            </h3>
+                            <div class="employerLimit">
+                                <div class="empLimiInn m-50">
+                                    <a href="#tab1" class="yesnoBx active">
+                                        <input type="radio" name="certificate" id="radio8" />
+                                        <label for="radio8">$100K/$500K/$100K</label>
+                                        <div class="check"></div>
+                                    </a>
+                                    <a href="#tab2" class="yesnoBx">
+                                        <input type="radio" name="certificate" id="radio9" />
+                                        <label for="radio9">$500K/$500K/$500K</label>
+                                        <div class="check"></div>
+                                    </a>
+                                    <a href="#tab3" class="yesnoBx">
+                                        <input type="radio" name="certificate" id="radio10" />
+                                        <label for="radio10">$1M/$1M/$1M</label>
+                                        <div class="check"></div>
+                                    </a>
+                                </div>
+                                <div class="empLimitTab" id="tab1" style="display: block;">
+                                    <h3 class="m-10">
+                                        Waiver of Subrogation
+                                        <i class="tooltip">
+                                            ?
+                                            <span class="right">A WOS means your insurance company agrees to cover all payable damages and doesnât have the right to recover losses from your clientâs insurance. Otherwise, if you and your client are at fault for something, your insurance company might pay the claim and then try to recoup part of the damages from your clientâs insurance. </span>
+                                        </i>
+                                    </h3>
+                                    <div class="waiversubs m-50">
+                                        <div class="checkboxBx m-10">
+                                            <label>
+                                                <input type="checkbox">
+                                                <span class="checkmark"></span>
+                                                <strong>Add a Waiver of Subrogation</strong><br /><small>*Additional charges may apply</small>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="peryear">
+                                        <span>Per year</span>
+                                        <h1>$1,273<sup>.47</sup></h1>
+                                    </div>
+                                </div>
+                                <div class="empLimitTab" id="tab2">
+                                    <h3 class="m-10">
+                                        Waiver of Subrogation
+                                        <i class="tooltip">
+                                            ?
+                                            <span class="right">A WOS means your insurance company agrees to cover all payable damages and doesnât have the right to recover losses from your clientâs insurance. Otherwise, if you and your client are at fault for something, your insurance company might pay the claim and then try to recoup part of the damages from your clientâs insurance. </span>
+                                        </i>
+                                    </h3>
+                                    <div class="waiversubs m-50">
+                                        <div class="checkboxBx m-10">
+                                            <label>
+                                                <input type="checkbox" checked="checked">
+                                                <span class="checkmark"></span>
+                                                <strong>Add a Waiver of Subrogation</strong><br /><small>*Additional charges may apply</small>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="peryear m-20">
+                                        <span>Per year</span>
+                                        <h1>$1,052<sup>.47</sup></h1>
+                                    </div>
+                                    <div class="savechangesBtnBx">
+                                        <button type="button" name="button" class="savechangeBtn">Save Changes</button>
+                                    </div>
+
+
+                                </div>
+                                <div class="empLimitTab" id="tab3">
+                                    <h3 class="m-10">
+                                        Waiver of Subrogation
+                                        <i class="tooltip">
+                                            ?
+                                            <span class="right">A WOS means your insurance company agrees to cover all payable damages and doesnât have the right to recover losses from your clientâs insurance. Otherwise, if you and your client are at fault for something, your insurance company might pay the claim and then try to recoup part of the damages from your clientâs insurance. </span>
+                                        </i>
+                                    </h3>
+                                    <div class="waiversubs m-50">
+                                        <div class="checkboxBx m-10">
+                                            <label>
+                                                <input type="checkbox">
+                                                <span class="checkmark"></span>
+                                                <strong>Add a Waiver of Subrogation</strong><br /><small>*Additional charges may apply</small>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="peryear">
+                                        <span>Per year</span>
+                                        <h1>$1,052<sup>.47</sup></h1>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <h2 class="Ques">Carrier<i class="fa-solid fa-angle-down"></i></h2>
+                        <div class="carrierCont ans">
+                            <h3>Solo X</h3>
+                            <p>Solo X is a product designed by SolePro, offering custom workersâ comp policies to those with no employees. Solo X allows business owners to get their Certificate of Insurance affordably and easily.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <h2 class="Ques">What's Covered?<i class="fa-solid fa-angle-down"></i></h2>
+                        <div class="carrierCont ans">
+                            <ul class="m-30">
+                                <li>24-Hour Accident coverage [owner(s) only]</li>
+                                <li>Pays cash benefits directly to you in the event of accident</li>
+                                <li>Renewable for life</li>
+                                <li>Deductible: $0</li>
+                            </ul>
+                            <a href="">View Benefits</a>
+                        </div>
+                    </li>
+                    <li>
+                        <h2 class="Ques">What's not Covered<i class="fa-solid fa-angle-down"></i></h2>
+                        <div class="carrierCont ans">
+                            <p class="m-20">The Solo X workers' comp policy is an "Owner Excluded" policy. Owner(s) are excluded from workers' compensation coverages part one and two.</p>
+                            <div class="partsList">
+                                <strong>Part One: Workers' Compensation</strong>
+                                <span class="m-30">Owner(s) Excluded from Coverage</span>
+                                <strong>Part Two: Employers Liability </strong>
+                                <span>Owner(s) Excluded from Coverage</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <h2 class="Ques">Payment<i class="fa-solid fa-angle-down"></i></h2>
+                        <div class="carrierCont ans">
+                            <p class="m-10">This is a minimum premium policy that is paid in full, up front.</p>
+                            <span>Annual payment:</span>
+                            <span>Workers' Compensation Premium: $</span>
+                            <span>Accident Policy Premium: $</span>
+                            <span>Loss Control Fee: $ 50</span>
+                            <span>State Fee: $0.00</span>
+                            <span class="m-30">Credit Card Fee: $</span>
+                            <span><strong>Total: $1,011.52</strong></span>
+                        </div>
+                    </li>
+                    <li>
+                        <h2 class="Ques">Cancellation<i class="fa-solid fa-angle-down"></i></h2>
+                        <div class="carrierCont ans">
+                            <p>Please note that this policy is fully <strong>earned and non-refundable.</strong> In the event that you cancel your policy, you will not receive a refund from the insurance carriers.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="backquote closepop"><i class="fa-solid fa-left-long"></i> &nbsp; <a href="">Back to my quotes</a></div>
+        </div>
+    </div>
+    <!--Quote Popup-->
+    <!--Request Waiver Popup-->
+    <div class="overlay" id="requestwaiver">
+        <div class="popupContainer">
+            <div class="popupCLose closepop">X</div>
+            <div class="requestwaiver_Outer">
+                <h1 class="m-10">
+                    Waiver of Subrogation
+                    <i class="tooltip">
+                        ?
+                        <span class="right">In workers' comp, the type of work is referred to as a "class code".</span>
+                    </i>
+                </h1>
+                <h4 class="m-50">Some contracts require you to provide waiver of subrogation. You can request a waiver at anytime.</h4>
+            </div>
+            <div class="needwaiver">
+                <h3>Need a Waiver now? <small>*Additional charges may apply</small></h3>
+            </div>
+            <div class="waiverTabOuter">
+                <div class="empLimiInn m-30">
+                    <a href="#tab4" class="yesnoBx active">
+                        <input type="radio" name="certificate" id="radio8" />
+                        <label for="radio8">Blanket Waiver</label>
+                        <div class="check"></div>
+                    </a>
+                    <a href="#tab5" class="yesnoBx">
+                        <input type="radio" name="certificate" id="radio9" />
+                        <label for="radio9">Individual Waiver</label>
+                        <div class="check"></div>
+                    </a>
+                </div>
+                <div class="empLimitTab" id="tab4" style="display: block;">
+                    <br />
+                    <br />
+                </div>
+                <div class="empLimitTab" id="tab5">
+                    <div class="clientnameOuter">
+                        <h3 class="m-10">Client Name</h3>
+                        <div class="form-group">
+                            <input type="text" name="name" placeholder="First Name" class="frmInp" />
+                        </div>
+                    </div>
+                    <div class="clientnameOuter">
+                        <h3 class="m-10">Client Address</h3>
+                        <div class="form-group">
+                            <input type="text" name="name" placeholder="Street" class="frmInp" />
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="name" placeholder="City" class="frmInp" />
+                        </div>
+                        <div class="frmhalfouter">
+                            <div class="half">
+                                <div class="form-group">
+                                    <input type="text" name="name" placeholder="State" class="frmInp" />
+                                </div>
+                            </div>
+                            <div class="half">
+                                <div class="form-group">
+                                    <input type="text" name="name" placeholder="Zip" class="frmInp" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="requestwaiver_popup">
+                    <a href="javascript:void(0)" class="req_waiverBtn">Request Waiver</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Request Waiver Popup-->
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+    <script src="/js/function.js" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function () {
+
+            /*-------------------faq----------------*/
+            $(".Ques").click(function () {
+                $(".ans").slideUp(400);
+                if ($(this).hasClass("active")) {
+                    $(".Ques").removeClass("active");
+                    $(".ans").slideUp(400);
+                }
+                else {
+                    $(".Ques").removeClass("active");
+                    $(this).next(".ans").slideDown(400);
+                    $(this).addClass("active");
+                }
+            });
+            /*Message Tab section*/
+            $(".empLimiInn a").on("click", function (e) {
+                e.preventDefault();
+                var webend = $(this).attr("href");
+                $(".empLimitTab").hide(0);
+                $(webend).show(0);
+                $(".empLimiInn a").removeClass("active");
+                $(this).addClass("active");
+            });
+
+            /*------------Popup--------------*/
+            $(".quoteDetPop").click(function () {
+                $("#quoteDet").fadeIn();
+                $("body").addClass("overflow");
+            });
+            $(".closepop").click(function () {
+                $("#quoteDet").fadeOut();
+                $("body").removeClass("overflow");
+            })
+            /*------------Popup--------------*/
+            $(".req_waiver").click(function () {
+                $("#requestwaiver").fadeIn();
+                $("body").addClass("overflow");
+            });
+            $(".closepop").click(function () {
+                $("#requestwaiver").fadeOut();
+                $("body").removeClass("overflow");
+            })
+
+
+        });
+    </script>
+
+</body>
+
+</html>

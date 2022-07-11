@@ -1,0 +1,102 @@
+﻿@model PogoInsurance.Models.WorkerCompCoverageModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0">
+    <title>Pogo Insurance</title>
+    <link rel="shortcut icon" href="~/favicon.ico" type="image/x-icon">
+    <link href="~/Content/stylesheet.css" rel="stylesheet" type="text/css">
+    <link href="~/Content/responsive.css" rel="stylesheet" type="text/css">
+    <script src="https://kit.fontawesome.com/fbb15fc2fb.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <!--Header start from Here-->
+    <header><a href=""><img src="~/images/logo.png" alt="" /></a></header>
+    <!--Header End Here-->
+    <!--Body start from Here-->
+    <div class="mainCont">
+        <div class="container">
+            @using (Html.BeginForm("WorkerComp", "Index", FormMethod.Post))
+            {
+                <div class="backbtn"><a href="@Url.Action("BusinessLocation", "Index")"><i class="fa-solid fa-left-long"></i> Back</a></div>
+                <h1 class="m-50">Worker's Comp Coverage</h1>
+
+                <div class="businessStructure m-50">
+                    <h3 class="m-20">
+                        Choose your Employers Liability Limits
+                        <i class="tooltip">
+                            ?
+                            <span class="right">In workers' comp, the type of work is referred to as a "class code".</span>
+                        </i>
+                    </h3>
+                    <div class="structureList m-50">
+                        @for (var i = 0; i < Model.EmployersLiabilityLimits.Count(); i++)
+                        {
+                        <div class="radioBxOuter">
+                            @Html.RadioButton("EmployersLiabilityLimitSelected", Model.EmployersLiabilityLimits[i].LimitId, false, new { Id = @Model.EmployersLiabilityLimits[i].LimitId })
+                          
+                            <label for="@Model.EmployersLiabilityLimits[i].LimitId">$100K/$100K/$100K</label>
+                            <div class="check"></div>
+                        </div>
+                        }
+
+                    </div>
+                </div>
+
+                <div class="businessStructure m-50">
+                    <h3 class="m-20">
+                        Do the owners wish to be included for coverage on the policy?
+                        <i class="tooltip">
+                            ?
+                            <span class="left">Just a fancy way of asking if they want coverage or not. You typically donï¿½t have to get workersï¿½ comp coverage for owners/officers unless you want to. (Of course, itï¿½s always a good idea.)</span>
+                        </i>
+                    </h3>
+                    <div class="yesnoBxOuter m-20">
+                        <div class="half">
+                            <div class="yesnoBx">
+                                @Html.RadioButton("CoveragePolicySelected", "Yes", false, new { Id = "checkbox" })
+                                <label for="checkbox">Yes</label>
+                                <div class="check"></div>
+                            </div>
+                        </div>
+                        <div class="half">
+                            <div class="yesnoBx">
+                                @Html.RadioButton("CoveragePolicySelected", "No", false, new { Id = "checkbox1" })
+                                <label for="checkbox1">No</label>
+                                <div class="check"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="frmFullOuter m-20">
+                        <div class="yesnoBx">
+                            @Html.RadioButton("CoveragePolicySelected", "Quote Both", false, new { Id = "checkbox2" })
+                            <label for="checkbox2">Quote Both</label>
+                            <div class="check"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="button-grpup">
+                    <button class="nextBtn" type="submit">Next <i class="fa-solid fa-right-long"></i></button>
+                </div>
+            }
+        </div>
+    </div>
+    <!--Body End Here-->
+    <!--Footer start from Here-->
+    <footer>
+        Copyright 2022 / <a href="">Privacy</a> / <a href="">Terms</a>
+    </footer>
+    <!--Footer End Here-->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+
+</body>
+
+</html>

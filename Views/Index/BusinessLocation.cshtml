@@ -1,0 +1,124 @@
+﻿@model PogoInsurance.Models.BusinessLocationModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0">
+    <title>Pogo Insurance</title>
+    <link rel="shortcut icon" href="~/favicon.ico" type="image/x-icon">
+    <link href="~/Content/stylesheet.css" rel="stylesheet" type="text/css">
+    <link href="~/Content/responsive.css" rel="stylesheet" type="text/css">
+    <script src="https://kit.fontawesome.com/fbb15fc2fb.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <!--Header start from Here-->
+    <header><a href=""><img src="~/images/logo.png" alt="" /></a></header>
+    <!--Header End Here-->
+    <!--Body start from Here-->
+    <div class="mainCont">
+        <div class="container">
+            @using (Html.BeginForm("BusinessLocation", "Index", FormMethod.Post))
+            {
+                <div class="backbtn">
+                    <a href="@Url.Action("Quote", "Index")"><i class="fa-solid fa-left-long"></i> Back</a>
+                </div>
+                <h1 class="m-10">Business location</h1>
+                <h4 class="m-50">
+                    Include all of your locations. Don't forget warehouses, back offices, storage facilicies, or locations for employees who work from home.
+                </h4>
+                <!--Primary Business Section Start Here-->
+                <div class="addownerOuter">
+                    <div class="businessStructure">
+                        <h2 class="m-10">Primary business address </h2>
+                        <h4 class="m-30">(You cannot get a quote with a PO box.) </h4>
+                        <div class="form-group">
+                            @Html.TextBoxFor(m=>m.PrimaryStreet, new { placeholder = "Street", @class="frmInp" })
+                        </div>
+                        <div class="form-group">
+                            @Html.TextBoxFor(m => m.PrimaryCity, new { placeholder = "City", @class = "frmInp" })
+                        </div>
+                        <div class="frmhalfouter">
+                            <div class="half">
+                                <div class="form-group">
+                                    @Html.TextBoxFor(m => m.PrimaryState, new { placeholder = "State", @class = "frmInp" })
+                                </div>
+                            </div>
+                            <div class="half">
+                                <div class="form-group">
+                                    @Html.TextBoxFor(m => m.PrimaryZipCode, new { placeholder = "Zip", @class = "frmInp" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="checkboxBx m-50">
+                            <label>
+                                
+                                @Html.CheckBoxFor(m=>m.IsMaillingAddress)
+                                <span class="checkmark"></span>
+                                Use a different mailing address
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="addownerOuter" id="MailingAddress">
+                    <div class="businessStructure">
+                        <h2 class="m-10">Mailing address </h2>
+                        <h4 class="m-30">(You cannot get a quote with a PO box.) </h4>
+                        <div class="form-group">
+                            @Html.TextBoxFor(m => m.MailingStreet, new { placeholder = "Street", @class = "frmInp" })
+                        </div>
+                        <div class="form-group">
+                            @Html.TextBoxFor(m => m.MailingCity, new { placeholder = "City", @class = "frmInp" })
+                        </div>
+                        <div class="frmhalfouter">
+                            <div class="half">
+                                <div class="form-group">
+                                    @Html.TextBoxFor(m => m.MailingState, new { placeholder = "State", @class = "frmInp" })
+                                </div>
+                            </div>
+                            <div class="half">
+                                <div class="form-group">
+                                    @Html.TextBoxFor(m => m.MailingZipCode, new { placeholder = "Zip", @class = "frmInp" })
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <!--Primary Business Section End Here-->
+                <div class="addanotherBtnBx m-50">
+                    <a href="javascript:void(0)" class="addanotherBtn">+ Add another location</a>
+                </div>
+                <div class="button-grpup">
+                    <button class="nextBtn" type="submit">Next <i class="fa-solid fa-right-long"></i></button>
+                </div>
+            }
+        </div>
+    </div>
+    <!--Body End Here-->
+    <!--Footer start from Here-->
+    <footer>
+        Copyright 2022 / <a href="">Privacy</a> / <a href="">Terms</a>
+    </footer>
+    <!--Footer End Here-->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+    <script src="~/Scripts/function.js" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function () {
+            $('#MailingAddress').hide();
+            $('.addanotherBtn').click(function () {
+                $('#MailingAddress').show();
+                $('.addanotherBtn').hide();
+                //var newel = $('.addownerOuter').clone();
+                //$(newel).insertAfter(".addownerOuter:last");
+            });
+        });
+    </script>
+</body>
+
+</html>

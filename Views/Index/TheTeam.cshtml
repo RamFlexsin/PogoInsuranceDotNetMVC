@@ -1,0 +1,87 @@
+﻿@model PogoInsurance.Models.IndexViewModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0">
+    <title>Pogo Insurance</title>
+    <link href="~/Content/stylesheet.css" rel="stylesheet" />
+    <link href="~/Content/responsive.css" rel="stylesheet" />
+    <link rel="shortcut icon" href="~/favicon.ico" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/fbb15fc2fb.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <!--Header start from Here-->
+    <header><a href=""><img src="~/images/logo.png" alt="" /></a></header>
+    <!--Header End Here-->
+    <!--Body start from Here-->
+    <div class="mainCont">
+        <div class="container">
+            @using (Html.BeginForm("TheTeam", "Index", FormMethod.Post))
+            {
+                <div class="backbtn"> <a href="@Url.Action("businessbasics", "Index")"><i class="fa-solid fa-left-long"></i> Back</a></div>
+                <h1 class="m-50">The team</h1>
+
+                <div class="businessStructure">
+                    <h3 class="m-20">Number of Owners</h3>
+                    <div class="numberOwners">
+                        <a class="btn-decrease" data-decrease onclick="return false">-</a>
+                        @Html.TextBoxFor(m => m.NumberofOwners, new { value = @Model.NumberofOwners })
+                        @*<input asp-for="NumberofOwners" data-value type="text" value="@Model.NumberofOwners" />*@
+                        <a class="btn-increase" data-increase>+</a>
+                    </div>
+
+                    <h3 class="m-10">Number of Employees</h3>
+                    <h4 class="m-20">(Not including owners, subcontractors, or independent contractors)</h4>
+                    <div class="numberOwners">
+                        <a class="btn-decrease" data-decrease>-</a>
+                        @Html.TextBoxFor(m => m.NumberofEmployees, new { value = @Model.NumberofEmployees })
+                        @*<input asp-for="NumberofEmployees" data-value type="text" value="@Model.NumberofEmployees" />*@
+                        <a class="btn-increase" data-increase>+</a>
+                    </div>
+                    <h3 class="m-20">Does the business hire subcontractors?</h3>
+                    <div class="yesnoBxOuter m-50">
+                        <div class="half">
+                            <div class="yesnoBx">
+                                @Html.RadioButton("SubcontractorsHire", "Yes", false, new { Id = "CheckBox" })
+                                <label for="CheckBox">Yes</label>
+                                <div class="check"></div>
+                            </div>
+                        </div>
+                        <div class="half">
+                            <div class="yesnoBx">
+                                @Html.RadioButton("SubcontractorsHire", "No", false, new { Id = "CheckBox1" })
+                                <label for="CheckBox1">No</label>
+                                <div class="check"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="button-grpup">
+                    <button class="nextBtn" type="submit">Next <i class="fa-solid fa-right-long"></i></button>
+                    @*<a href="contact-information.html" class="nextBtn">Next <i class="fa-solid fa-right-long"></i></a>*@
+                </div>
+            }
+        </div>
+    </div>
+    <!--Body End Here-->
+    <!--Footer start from Here-->
+    <footer>
+        Copyright 2022 / <a href="">Privacy</a> / <a href="">Terms</a>
+    </footer>
+    <!--Footer End Here-->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+
+    <script src="~/Scripts/function.js"></script>
+</body>
+
+</html>
+
+

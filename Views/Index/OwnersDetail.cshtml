@@ -1,0 +1,361 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0">
+    <title>Pogo Insurance</title>
+    <link href="~/Content/stylesheet.css" rel="stylesheet" />
+    <link href="~/Content/responsive.css" rel="stylesheet" />
+    <link rel="shortcut icon" href="~/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+    <script src="https://kit.fontawesome.com/fbb15fc2fb.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+
+    <!--Header start from Here-->
+    <header><a href=""><img src="~/images/logo.png" alt="" /></a></header>
+    <!--Header End Here-->
+    <!--Body start from Here-->
+    <div class="mainCont">
+        <div class="container">
+            @using (Html.BeginForm("OwnersDetail", "Index", FormMethod.Post))
+            {
+                <div class="backbtn"> <a href="@Url.Action("WorkerComp", "Index")"><i class="fa-solid fa-left-long"></i> Back</a>  </div>
+                <h1 class="m-10">Owner information </h1>
+                <h4 class="m-30">Add all owners and officers of the business </h4>
+                <input type="hidden" name="hdnRows" id="hdnRows" value="1" />
+                <div class="addownerOuter" id="addownerOuter1">
+                    <div class="businessStructure m-30">
+                        <h2 class="m-10">Owner 1</h2>
+                        <div class="form-group">
+                            <input type="text" id="FirstName1" name="FirstName1" placeholder="First Name" class="frmInp" />
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="LastName1" name="LastName1" placeholder="Last Name" class="frmInp" />
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="Phone1" name="Phone1" placeholder="Phone" class="frmInp" />
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="Email1" name="Email1" placeholder="Email" class="frmInp" />
+                        </div>
+                    </div>
+                    <div class="businessStructure m-30">
+                        <h3 class="m-10">Type of work</h3>
+                        <h4 class="m-20">Enter the primary type of work this owner performs</h4>
+                        <div class="form-group m-30">
+                            <div class="srchOuter">
+                                <input type="text" id="TypeOfWork1" name="TypeOfWork1" class="frmInp" />
+                                <button type="button" name="button" class="srchIcon"><i class="fa-solid fa-magnifying-glass"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="businessStructure m-50">
+                        <h3 class="m-10">Location</h3>
+                        <div class="itemselect">
+                            <div class="custom-select">
+                                @Html.DropDownList("ddlLocation1", new SelectList(ViewBag.LocationList, "LocationId", "LocationName"), new { Id = "ddlLocation1" })
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="businessStructure m-50">
+                        <h3 class="m-10">Title</h3>
+                        <div class="itemselect">
+                            <div class="custom-select">
+                                @Html.DropDownList("ddlTitle1", new SelectList(ViewBag.LocationList, "LocationId", "LocationName"), new { Id = "ddlTitle1" })
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="businessStructure m-50">
+                        <h3 class="m-10">Owner payroll</h3>
+                        <div class="payrollFld">
+                            <input type="text" id="OwnerPayroll1" name="OwnerPayroll1" class="frmInp" />
+                            <i class="fa-solid fa-dollar-sign"></i>
+                        </div>
+                    </div>
+                    <div class="businessStructure m-50">
+                        <h3 class="m-10">Date of birth</h3>
+                        <div class="form-group m-30">
+                            <div class="srchOuter">
+                                <input type="Date" id="DateOfBirth1" name="DateOfBirth1" placeholder="MM/DD/YYYY" class="frmInp" />
+                                @*<button type="button" name="button" class="srchIcon"><i class="fa-regular fa-calendar-days"></i></button>*@
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="addownerOuter" id="addownerOuter2">
+                    <div class="businessStructure m-30">
+                        <h2 class="m-10">Owner 2</h2>
+                        <div class="form-group">
+                            <input type="text" id="FirstName2" name="FirstName2" placeholder="First Name" class="frmInp" />
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="LastName2" name="LastName2" placeholder="Last Name" class="frmInp" />
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="Phone2" name="Phone2" placeholder="Phone" class="frmInp" />
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="Email2" name="Email2" placeholder="Email" class="frmInp" />
+                        </div>
+                    </div>
+                    <div class="businessStructure m-30">
+                        <h3 class="m-10">Type of work</h3>
+                        <h4 class="m-20">Enter the primary type of work this owner performs</h4>
+                        <div class="form-group m-30">
+                            <div class="srchOuter">
+                                <input type="text" id="TypeOfWork2" name="TypeOfWork2" class="frmInp" />
+                                <button type="button" name="button" class="srchIcon"><i class="fa-solid fa-magnifying-glass"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="businessStructure m-50">
+                        <h3 class="m-10">Location</h3>
+                        <div class="itemselect">
+                            <div class="custom-select">
+                                @Html.DropDownList("ddlLocation2", new SelectList(ViewBag.LocationList, "LocationId", "LocationName"))
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="businessStructure m-50">
+                        <h3 class="m-10">Title</h3>
+                        <div class="itemselect">
+                            <div class="custom-select">
+                                @Html.DropDownList("ddlTitle2", new SelectList(ViewBag.LocationList, "LocationId", "LocationName"))
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="businessStructure m-50">
+                        <h3 class="m-10">Owner payroll</h3>
+                        <div class="payrollFld">
+                            <input type="text" id="OwnerPayroll2" name="OwnerPayroll2" class="frmInp" />
+                            <i class="fa-solid fa-dollar-sign"></i>
+                        </div>
+                    </div>
+                    <div class="businessStructure m-50">
+                        <h3 class="m-10">Date of birth</h3>
+                        <div class="form-group m-30">
+                            <div class="srchOuter">
+                                <input type="Date" id="DateOfBirth2" name="DateOfBirth2" placeholder="MM/DD/YYYY" class="frmInp" />
+                                @*<button type="button" name="button" class="srchIcon"><i class="fa-regular fa-calendar-days"></i></button>*@
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="addownerOuter" id="addownerOuter3">
+                    <div class="businessStructure m-30">
+                        <h2 class="m-10">Owner 3</h2>
+                        <div class="form-group">
+                            <input type="text" id="FirstName3" name="FirstName3" placeholder="First Name" class="frmInp" />
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="LastName3" name="LastName3" placeholder="Last Name" class="frmInp" />
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="Phone3" name="Phone3" placeholder="Phone" class="frmInp" />
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="Email3" name="Email3" placeholder="Email" class="frmInp" />
+                        </div>
+                    </div>
+                    <div class="businessStructure m-30">
+                        <h3 class="m-10">Type of work</h3>
+                        <h4 class="m-20">Enter the primary type of work this owner performs</h4>
+                        <div class="form-group m-30">
+                            <div class="srchOuter">
+                                <input type="text" id="TypeOfWork3" name="TypeOfWork3" class="frmInp" />
+                                <button type="button" name="button" class="srchIcon"><i class="fa-solid fa-magnifying-glass"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="businessStructure m-50">
+                        <h3 class="m-10">Location</h3>
+                        <div class="itemselect">
+                            <div class="custom-select">
+                                @Html.DropDownList("ddlLocation3", new SelectList(ViewBag.LocationList, "LocationId", "LocationName"))
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="businessStructure m-50">
+                        <h3 class="m-10">Title</h3>
+                        <div class="itemselect">
+                            <div class="custom-select">
+                                @Html.DropDownList("ddlTitle3", new SelectList(ViewBag.LocationList, "LocationId", "LocationName"))
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="businessStructure m-50">
+                        <h3 class="m-10">Owner payroll</h3>
+                        <div class="payrollFld">
+                            <input type="text" id="OwnerPayroll3" name="OwnerPayroll3" class="frmInp" />
+                            <i class="fa-solid fa-dollar-sign"></i>
+                        </div>
+                    </div>
+                    <div class="businessStructure m-50">
+                        <h3 class="m-10">Date of birth</h3>
+                        <div class="form-group m-30">
+                            <div class="srchOuter">
+                                <input type="Date" id="DateOfBirth3" name="DateOfBirth3" placeholder="MM/DD/YYYY" class="frmInp" />
+                                @*<button type="button" name="button" class="srchIcon"><i class="fa-regular fa-calendar-days"></i></button>*@
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="addanotherBtnBx m-50">
+                    <a href="javascript:void(0)" class="addanotherBtn">+ Add another owner</a>
+                </div>
+                <div class="businessStructure m-30">
+                    <h3 class="m-10 highlight">Owner 1 Percent Ownership</h3>
+                    <div class="form-group m-50">
+                        <div class="srchOuter">
+                            <input type="text" name="PartnershipPercent" id="PartnershipPercent" class="frmInp" />
+                            <button type="button" name="button" class="srchIcon"><i class="fa-solid fa-percent"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="button-grpup">
+                    @*<a href="employees.html" class="nextBtn">Next <i class="fa-solid fa-right-long"></i></a>*@
+                    <button class="nextBtn"  type="submit">Next <i class="fa-solid fa-right-long"></i></button>
+                </div>
+            }
+        </div>
+    </div>
+    <!--Body End Here-->
+    <!--Footer start from Here-->
+    <footer>
+        Copyright 2022 / <a href="">Privacy</a> / <a href="">Terms</a>
+    </footer>
+    <!--Footer End Here-->
+    <script src="~/Scripts/dropdown.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+    <script src="~/Scripts/function.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        $(document).on("click", "#customerButton", function () {
+
+            var OwnerDetail = [];
+            var rowidx = parseInt($("#hdnRows").val());
+            for (var i = 1; i <= rowidx; i++) {
+
+                var OwnerModel = {
+                    "FirstName": $('#FirstName' + i + '').val(),
+                    "LastName": $('#LastName' + i + '').val(),
+                    "Phone": $('#Phone' + i + '').val(),
+                    "Email": $('#Email' + i + '').val(),
+                    "TypeOfWork": $('#TypeOfWork' + i + '').val(),
+                    "Location": $('#ddlLocation' + i + '').val(),
+                    "Title": $('#ddlTitle' + i + '').val(),
+                    "OwnerPayroll": $('#OwnerPayroll' + i + '').val(),
+                    "DateOfBirth": $('#DateOfBirth' + i + '').val(),
+                    "LocationId": $('#ddlLocation' + i + '').val(),
+                    "TitleId": $('#ddlTitle' + i + '').val(),
+
+                };
+                OwnerDetail.push(OwnerModel);
+            }
+
+            var ownerDetailModel = {
+                "PartnershipPercent": $('#PartnershipPercent').val(),
+                "OwnerDetails": OwnerDetail,
+                "LocationLists": null
+            };
+
+            var urlprefix = "";
+            if (!window.location.origin.includes("localhost")) {
+                urlprefix = window.location.origin;
+            }
+
+            debugger;
+            $.ajax({
+                type: "POST",
+                url: urlprefix + "/Index/OwnersDetail",
+                dataType: 'json',
+                data: ownerDetailModel, //JSON.stringify(ownerDetailModel),
+                success: function (res) {
+                    if (res) {
+                        window.location.href = urlprefix + "/Index/Employees";
+                    } else {
+                        console.log(res);
+                        alert('console: ' + res);
+                    }
+
+                },
+                error: function (xhr) {
+                    console.log(xhr);
+                    alert('error: ' + xhr.responseText);
+
+                }
+            });
+
+        });
+        //$(document).ready(function() {
+        //    $('.addanotherBtn').click(function(){
+        //        var newel = $('.addownerOuter').clone();
+        //        $(newel).insertAfter(".addownerOuter:last");
+        //    });
+        //});
+
+
+
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            debugger;
+            var rowidx = parseInt($("#hdnRows").val());
+            if (rowidx == 1) {
+                $("#addownerOuter1").show();
+                $("#addownerOuter2").hide();
+                $("#addownerOuter3").hide();
+            }
+        });
+
+        $(document).on("click", ".addanotherBtn", function () {
+            debugger;
+            var rowidx = parseInt($("#hdnRows").val()) + 1;
+            if (rowidx == 2) {
+                $("#addownerOuter1").show();
+                $("#addownerOuter2").show();
+                $("#addownerOuter3").hide();
+                $("#hdnRows").val(rowidx);
+            }
+            if (rowidx == 3) {
+                $("#addownerOuter1").show();
+                $("#addownerOuter2").show();
+                $("#addownerOuter3").show();
+                $("#hdnRows").val(rowidx);
+            }
+            if (rowidx == 3) {
+                $('.addanotherBtn').hide();
+            }
+        });
+    </script>
+
+    <!-- <script src="https://code.jquery.com/jquery-3.6.0.js"></script> -->
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+    <script>
+        $(function () {
+            $("#datepicker").datepicker();
+            $("#anim").on("change", function () {
+                $("#datepicker").datepicker("option", "showAnim", $(this).val());
+            });
+        });
+
+
+
+    </script>
+</body>
+
+</html>

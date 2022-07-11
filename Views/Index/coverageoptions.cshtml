@@ -1,0 +1,73 @@
+﻿@model PogoInsurance.Models.IndexViewModel
+
+@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0">
+    <title>Pogo Insurance</title>
+    <link href="~/Content/stylesheet.css" rel="stylesheet" />
+    <link href="~/Content/responsive.css" rel="stylesheet" />
+    <link rel="shortcut icon" href="~/favicon.ico" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/fbb15fc2fb.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <!--Header-->
+    <header><a href=""><img src="~/images/logo.png" alt="" /></a></header>
+    <!--Header-->
+    <!--Body-->
+    <div class="mainCont">
+        <div class="container">
+            @using (Html.BeginForm("coverageoptionsPost", "Index", FormMethod.Post))
+            {
+                <div class="backbtn"> <a href="@Url.Action("Index", "Index")"><i class="fa-solid fa-left-long"></i> Back</a>  </div>
+                <h1 class="m-10">What are you looking for?</h1>
+                <h4 class="m-50">Not sure? Select anything you might be interested in.</h4>
+                <div class="lookingForList">
+                    <ul>
+                        @for (var i = 0; i < Model.Lookingfor.Count(); i++)
+                        {
+                            <li>
+                                @Html.CheckBoxFor(M => M.Lookingfor[i].ChkAnswer)
+                                <span class="checkmark2"></span>
+                                @*<div>
+                                    @Html.LabelFor(M => M.Lookingfor[i].ChkAnswer)
+                                    <strong>@Model.Lookingfor[i].DataTitle</strong>
+                                    <p>@Model.Lookingfor[i].Data</p>
+                                </div>*@
+                            <label >
+                                @Html.LabelFor(M => M.Lookingfor[i].ChkAnswer)
+                                <strong>@Model.Lookingfor[i].DataTitle</strong>
+                                <p>@Model.Lookingfor[i].Data</p>
+                            </label>
+                                @Html.HiddenFor(M => M.Lookingfor[i].DataTitle)
+                                @Html.HiddenFor(M => M.Lookingfor[i].DataId)
+                                @Html.HiddenFor(M => M.Lookingfor[i].Data)
+                                @Html.HiddenFor(M => M.Lookingfor[i].ChkAnswer)
+                            </li>
+                        }
+
+                    </ul>
+
+                </div>
+                <div class="button-grpup">
+                    @*<a href="@Url.Action("businessbasics","Index")" class="nextBtn">Next <i class="fa-solid fa-right-long"></i></a>*@
+                    <button class="nextBtn" type="submit">Next <i class="fa-solid fa-right-long"></i></button>
+                </div>
+            }
+
+        </div>
+    </div>
+    <!--Body-->
+    <footer>
+        Copyright 2022 / <a href="">Privacy</a> / <a href="">Terms</a>
+    </footer>
+</body>
+
+</html>

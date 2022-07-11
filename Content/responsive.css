@@ -1,0 +1,499 @@
+@media(max-width:1023px){
+    header {
+        box-shadow: #e5e5e5 0 0 2px 0;
+    }
+    .mainCont{
+        padding-top: 20px;
+    }
+    h1{
+        font-size: 32px;
+    }
+    .quotesContainer{
+        padding: 0 15px;
+    }
+    .quotesCount_Right{
+        width: 250px;
+    }
+    .workerCompHd h2 {
+        font-size: 28px;
+    }
+    .policyamount h1 {
+        font-size: 40px;
+    }
+    .quotesCont_Left {
+        width: calc(100% - 280px);
+    }
+    .generalibrary h2{
+        font-size: 28px;
+    }
+    .compensation label {
+        padding: 30px 30px 30px 65px;
+    }
+    .popupContainer {
+        width: 90%;
+        top: 5%;
+        padding: 30px;
+        border-radius: 20px;
+        left: 0;
+        right: 0;
+        bottom: 5%;
+        overflow: scroll;
+    }
+    .compDetailList li{
+        padding: 30px 0;
+    }
+    .compDetailList li h2 {
+        font-size: 27px;
+    }
+    .compDetailInn p {
+        font-size: 20px;
+        padding-bottom: 0;
+    }
+    .compDetailInn h3 {
+        font-size: 20px;
+    }
+    .empLimiInn .yesnoBx label {
+        font-size: 13px;
+    }
+    .almostBx {
+        padding: 20px;
+    }
+    .workcomp h2{
+        font-size: 27px;
+    }
+    .almostPrice h2 {
+        font-size: 42px;
+        padding-bottom: 13px;
+    }
+    .almostList {
+        display: block;
+    }
+    .almostBx{
+        width: 100%;
+        border-bottom: #ccc solid 2px;
+    }
+    .almostBx:last-child{
+        border-bottom:0;
+    }
+    .workcomp{
+        border-radius: 20px 20px 0 0;
+    }
+    .whatNext {
+        padding-right: 0px;
+    }
+    .note {
+        padding-right: 0px;
+    }
+}
+@media(max-width:767px){
+    header{
+        padding: 10px 15px;
+    }
+    h1{
+        font-size: 26px;
+    }
+    .form-group label{
+        font-size: 18px;
+        padding-bottom: 10px;
+    }
+    .frmInp{
+        padding: 10px 15px;
+    }
+    .nextBtn {
+        font-size: 30px;
+    }
+    h4 {
+        padding-bottom: 18px;
+    }
+
+    .lookingForList li strong {
+        font-size: 22px;
+    }
+    .lookingForList li span {
+        display: block;
+        font-size: 15px;
+    }
+    h3{
+        font-size: 24px;
+    }
+    h2 {
+        font-size: 24px;
+    }
+    .quotesCountBx{
+        display: block;
+    }
+    .quotesCont_Left{
+        width: 100%;
+    }
+    .quotesCount_Right{
+        width: 100%;
+    }
+    .compensation label {
+        padding: 20px 15px 20px 50px;
+    }
+    .compDetailList li {
+        padding: 20px 0;
+    }
+    .compDetailList li h2 {
+        font-size: 20px;
+    }
+    .compDetailInn p {
+        font-size: 17px;
+    }
+    .empLimiInn{
+        display: block;
+    }
+    .empLimiInn .yesnoBx {
+        width: 100%;
+        margin-bottom: 10px;
+        display: block;
+    }
+    .carrierCont h3 {
+        font-size: 20px;
+    }
+    .carrierCont p {
+        font-size: 17px;
+    }
+    .peryear h1 {
+        font-size: 32px;
+    }
+    .generalibrary p {
+        font-size: 22px;
+    }
+    .backquote a{
+        font-size: 18px;
+    }
+    .popupCLose {
+        right: 20px;
+        top: 10px;
+        font-size: 28px;
+    }
+    .waiverTabOuter .empLimiInn .yesnoBx {
+        width: 100%;
+    }
+    .carrierCont > ul > li {
+        font-size: 17px;
+        line-height: 27px;
+    }
+    .carrierCont span {
+        font-size: 17px;
+        line-height: 27px;
+    }
+    .checkestate_outer .checkboxBx label {
+        font-size: 20px;
+        line-height: 28px;
+        padding-left: 35px;
+    }
+    .programaggrement{
+        padding-left: 35px;
+    }
+    .almostaggrement h4{
+        padding-bottom: 0;
+    }
+    .programaggrement p {
+        font-size: 20px;
+        line-height: 28px;
+        padding-bottom: 20px;
+    }
+    .programaggrement .checkboxBx {
+        margin-left: -35px;
+    }
+    .purchaseBx{
+        width: 100%;
+    }
+    .note{
+        padding-bottom: 30px;
+    }
+}
+@media(max-width:479px){
+    .m-50{
+        margin-bottom: 30px !important;
+    }
+    i.tooltip span{
+        width: 250px;
+        font-size: 14px;
+    }
+    .srchIcon{
+        width: 22px;
+    }
+    .nextBtn {
+        font-size: 25px;
+    }
+    .mainCont {
+        min-height: calc(100vh - 95px);
+    }
+    h4{
+        font-size: 17px;
+    }
+    .lookingForList li input {
+        left: 17px;
+    }
+    .lookingForList li strong {
+        font-size: 18px;
+    }
+    .lookingForList li{
+        margin-bottom: 20px;
+    }
+    h3 {
+        font-size: 18px;
+    }
+    .numberOwners {
+        max-width: 220px;
+    }
+    .numberOwners button {
+        width: 33.34%;
+        font-size: 35px;
+        line-height: 43px;
+        height: 45px;
+    }
+    .yesnoBx label {
+        padding: 10px;
+        font-size: 18px;
+    }
+    .yesnoBx input{
+        top: 12px;
+    }
+    .m-20{
+        margin-bottom: 10px !important;
+    }
+    .structureList label {
+        padding: 15px 15px 15px 50px;
+        font-size: 18px;
+    }
+    .radioBxOuter input{
+        left: 15px;
+        top: 15px;
+    }
+    select.listmenu{
+        font-size: 18px;
+    }
+    .frmInp{
+        font-size: 17px;
+        border-radius: 5px;
+        padding: 7px 15px;
+    }
+    .checkboxBx label{
+        font-size: 18px;
+        line-height: 25px;
+    }
+    .addanotherBtnBx a {
+        border: dashed 2px #00B7FF;
+        padding: 10px 15px;
+        font-size: 20px;
+        border-radius: 5px;
+    }
+    .checkboxBx label {
+        font-size: 16px;
+    }
+    .frmhalfouter{
+        display: block;
+    }
+    .frmhalfouter .half{
+        width: 100%;
+    }
+    .m-30 {
+        margin-bottom: 20px !important;
+    }
+    .yesnoBxOuter .half{
+        width: 48%;
+    }
+    .txtareaInp{
+        font-size: 17px;
+        line-height: normal;
+    }
+    .yesnoBxOuter .half h4 {
+        margin-bottom: 0;
+        padding-bottom: 10px;
+    }
+    .payrollFld .frmInp {
+        padding: 7px 15px 7px 40px;
+    }
+    .payrollFld i{
+        font-size: 20px;
+    }
+    h2 {
+        font-size: 22px;
+    }
+    .businessfollow ul li {
+        font-size: 17px;
+    }
+    .lookingForList li label {
+        padding: 15px 15px 15px 60px;
+    }
+    .checkmark2{
+        left: 17px;
+    }
+    .lookingForList li label strong {
+        font-size: 20px;
+        padding-bottom: 5px;
+    }
+    .radioBxOuter .check{
+        left: 15px;
+    }
+    .compensation p {
+        font-size: 16px;
+        line-height: 22px;
+    }
+    .compensation p strong {
+        font-size: 15px;
+    }
+    .compensat_amount {
+        right: 15px;
+        font-size: 20px;
+    }
+    .generalibrary {
+        padding: 30px 0;
+    }
+    .generalibrary h2 {
+        font-size: 20px;
+    }
+    .generalibrary p {
+        font-size: 18px;
+    }
+    .generalibrary h2 span {
+        font-size: 14px;
+    }
+    .generalibrary span{
+        font-size: 15px;
+    }
+    .workerCompHd h2 {
+        font-size: 24px;
+    }
+    .workerCompHd span {
+        font-size: 27px;
+    }
+    .popupContainer {
+        padding: 30px 20px;
+    }
+    .compDetailInn h3 {
+        font-size: 17px;
+    }
+    h1 {
+        font-size: 22px;
+    }
+    .peryear span {
+        font-size: 18px;
+    }
+    .peryear h1 {
+        font-size: 28px;
+    }
+    .backquote a {
+        font-size: 16px;
+    }
+    .savechangesOuter {
+        display: block;
+    }
+    .savechangesBtnBx .savechangeBtn{
+        font-size: 17px;
+        padding: 10px 20px;
+    }
+    .needwaiver h3 {
+        font-size: 18px;
+    }
+    .waiverTabOuter .empLimiInn {
+        max-width: 100%;
+    }
+    .clientnameOuter h3 {
+        font-size: 20px;
+    }
+    .clientnameOuter {
+        padding-bottom: 10px;
+        padding-top: 10px;
+    }
+    .checkoutLimit {
+        font-size: 16px;
+        padding-top: 10px;
+    }
+    .requestwaiver_Outer h4 {
+        padding-bottom: 0;
+    }
+    .almostList{
+        border-radius: 10px;
+    }
+    .workcomp {
+        border-radius: 10px 10px 0 0;
+    }
+    .checkestate_outer .checkboxBx label {
+        font-size: 18px;
+        line-height: 26px;
+    }
+    .programaggrement p {
+        font-size: 18px;
+        line-height: 26px;
+    }
+    .programaggrement p a {
+        color: #00bbff;
+        text-decoration: underline;
+    }
+    .programaggrement {
+        padding-left: 0;
+    }
+    .programaggrement .checkboxBx {
+        margin-left: 0px;
+    }
+    .programaggrement{
+        padding-bottom: 0;
+        margin-bottom: 30px;
+    }
+    .companySign strong {
+        font-size: 16px;
+    }
+    .companySign span {
+        font-size: 17px;
+        line-height: 27px;
+    }
+    .whatNext ul li {
+        font-size: 18px;
+    }
+    .note {
+        font-size: 18px;
+        line-height: 27px;
+    }
+    h4.m-50 {
+        padding-bottom: 0;
+    }
+    /*----------Calander-------*/
+  .ui-datepicker {
+    width: 300px;
+    }
+    .ui-datepicker {
+        width: 300px !important;
+    }
+    .ui-state-default, .ui-widget-content .ui-state-default{
+        font-size: 16px;
+    }
+    .ui-datepicker table thead{
+        font-size: 15px;
+    }
+    .ui-datepicker .ui-datepicker-title{
+        font-size: 16px;
+    }
+    .select-items div, .select-selected {
+        color: #3a3a3a;
+        padding: 10px 16px;
+        border: 1px solid transparent;
+        border-color: transparent transparent rgba(0, 0, 0, 0.7) transparent;
+        cursor: pointer;
+        user-select: none;
+        font-size: 16px;
+    }
+    .select-selected{
+        height: 47px;
+    }
+    .select-selected:before {
+        top: 17px;
+    }
+    .select-selected:after {
+        top: 21px;
+    }
+    .yesnoBx .check{
+        left: 10px;
+    }
+    .select-selected:hover{
+        font-size: 16px;
+        padding: 10px 15px;
+    }
+    .policyamountBx {
+        padding: 35px 30px;
+    }
+}

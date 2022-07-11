@@ -1,0 +1,185 @@
+﻿@model PogoInsurance.Models.OperationsModel
+
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0">
+    <title>Pogo Insurance</title>
+    <link href="~/Content/stylesheet.css" rel="stylesheet" />
+    <link href="~/Content/responsive.css" rel="stylesheet" />
+    <link rel="shortcut icon" href="~/favicon.ico" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/fbb15fc2fb.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <!--Header start from Here-->
+    <header><a href=""><img src="~/images/logo.png" alt="" /></a></header>
+    <!--Header End Here-->
+    <!--Body start from Here-->
+    <div class="mainCont">
+        <div class="container">
+            @using (Html.BeginForm("Operations", "Index", FormMethod.Post))
+            {
+                <div class="backbtn"><a href="@Url.Action("AdditionalWorkers", "Index")"><i class="fa-solid fa-left-long"></i> Back</a></div>
+                <h1 class="m-50">Operations</h1>
+                <h3 class="m-20">Do any of the following apply to your business?</h3>
+                <div class="businessfollow">
+                    <ul>
+                        <li>The applicant owns, operates or leases aircraft / watercraft</li>
+                        <li>The business has past, present, or discontinued operations involving storing, treating, discharging, applying, disposing, or transporting of hazardous material? (e.g. landfills, wastes, fuel tanks, etc) </li>
+                        <li>Work is performed on barges, vessels, docks, or bridges over water </li>
+                        <li>Group transportation is provided.</li>
+                        <li>The applicant is engaged in another type of business</li>
+                        <li>The business has an employment leasing or Professional Employer Organization (PEO) contract.</li>
+                        <li>The business sponsors an athletic team.</li>
+                    </ul>
+                </div>
+                <div class="yesnoBxOuter m-30">
+                    <div class="half">
+                        <div class="yesnoBx">
+                            @Html.RadioButton("IsApplyYourBusiness", "Yes", false, new { Id = "checkbox" })
+                            <label for="checkbox">Yes</label>
+                            <div class="check"></div>
+                        </div>
+                    </div>
+                    <div class="half">
+                        <div class="yesnoBx">
+                            @Html.RadioButton("IsApplyYourBusiness", "No", false, new { Id = "checkbox1" })
+                            <label for="checkbox1">No</label>
+                            <div class="check"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="businessStructure m-50">
+                    <h3 class="m-20">Does anyone from the business: </h3>
+                    <div class="checkboxBx m-10">
+                        <label>
+                            @Html.CheckBoxFor(M => M.FromBUsiness.IsHandicaps)
+                            <span class="checkmark"></span>
+                            Have any physical handicaps?
+                        </label>
+                    </div>
+                    <div class="checkboxBx m-10">
+                        <label>
+                            @Html.CheckBoxFor(M => M.FromBUsiness.IsTravelForBusiness)
+                            <span class="checkmark"></span>
+                            Travel out of state for business?
+                        </label>
+                    </div>
+                    <div class="checkboxBx m-10">
+                        <label>
+                            @Html.CheckBoxFor(M => M.FromBUsiness.IsPredominantly)
+                            <span class="checkmark"></span>
+                            Predominantly work at home?
+                        </label>
+                    </div>
+                    <div class="checkboxBx m-10">
+                        <label>
+                            @Html.CheckBoxFor(M => M.FromBUsiness.IsEngageinAdditionalBusiness)
+                            <span class="checkmark"></span>
+                            Engage in additional businesses?
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        @Html.TextBoxFor(m=>m.FromBUsiness.ExplainBusiness, new { @class = "frmInp", placeholder = "Please Explain" })
+                    </div>
+                    <div class="checkboxBx m-10">
+                        <label>
+                            @Html.CheckBoxFor(M => M.FromBUsiness.IsSafetyProgram)
+                            <span class="checkmark"></span>
+                            Implement a written safety program?
+                        </label>
+                    </div>
+                    <div class="checkboxBx m-10">
+                        <label>
+                            @Html.CheckBoxFor(M => M.FromBUsiness.IsPerformOtherBusiness)
+                            <span class="checkmark"></span>
+                            Perform work for other businesses or subsidiaries?<br />
+                            <small>Is there a workers' comp policy in effect for the other business?</small>
+                        </label>
+                    </div>
+                    <div class="yesnoBxOuter m-20">
+                        <div class="half">
+                            <div class="yesnoBx">
+                                @Html.RadioButton("FromBUsiness.IsPolicyEffect", "Yes", false, new { Id = "checkbox6" })
+                                <label for="checkbox6">Yes</label>
+                                <div class="check"></div>
+                            </div>
+                        </div>
+                        <div class="half">
+                            <div class="yesnoBx">
+                                @Html.RadioButton("FromBUsiness.IsPolicyEffect", "No", false, new { Id = "checkbox7" })
+                                <label for="checkbox7">No</label>
+                                <div class="check"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="checkboxBx m-10">
+                        <label>
+                            @Html.CheckBoxFor(M => M.FromBUsiness.NoneOfAbove)
+                            <span class="checkmark"></span>
+                            None of the above
+                        </label>
+                    </div>
+                </div>
+
+                <div class="businessStructure m-50">
+                    <h3 class="m-20">Does the business performs work underground or above 15 feet? </h3>
+                    <div class="yesnoBxOuter m-50">
+                        <div class="half">
+                            <div class="yesnoBx">
+                                @Html.RadioButton("IsWorkUnderground", "Yes", false, new { Id = "checkbox2" })
+                                <label for="checkbox2">Yes</label>
+                                <div class="check"></div>
+                            </div>
+                        </div>
+                        <div class="half">
+                            <div class="yesnoBx">
+                                @Html.RadioButton("IsWorkUnderground", "No", false, new { Id = "checkbox3" })
+                                <label for="checkbox3">No</label>
+                                <div class="check"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="businessStructure m-50">
+                    <h3 class="m-20">Does the business require physicals after offers of employment are made?</h3>
+                    <div class="yesnoBxOuter m-50">
+                        <div class="half">
+                            <div class="yesnoBx">
+                                @Html.RadioButton("IsRequirePhysicals", "Yes", false, new { Id = "checkbox4" })
+                                <label for="checkbox4">Yes</label>
+                                <div class="check"></div>
+                            </div>
+                        </div>
+                        <div class="half">
+                            <div class="yesnoBx">
+                                @Html.RadioButton("IsRequirePhysicals", "No", false, new { Id = "checkbox5" })
+                                <label for="checkbox5">No</label>
+                                <div class="check"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="button-grpup">
+                    <button class="nextBtn" type="submit">Next <i class="fa-solid fa-right-long"></i></button>
+                </div>
+            }
+        </div>
+    </div>
+    <!--Body End Here-->
+    <!--Footer start from Here-->
+    <footer>
+        Copyright 2022 / <a href="">Privacy</a> / <a href="">Terms</a>
+    </footer>
+    <!--Footer End Here-->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+    <script src="~/Scripts/function.js" crossorigin="anonymous"></script>
+
+</body>
+
+</html>

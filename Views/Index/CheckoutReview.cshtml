@@ -1,0 +1,424 @@
+﻿@model PogoInsurance.Models.CheckoutReviewModel
+
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0">
+    <title>Pogo Insurance</title>
+    <link href="~/Content/stylesheet.css" rel="stylesheet" />
+    <link href="~/Content/responsive.css" rel="stylesheet" />
+    <link rel="shortcut icon" href="~/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+    <script src="https://kit.fontawesome.com/fbb15fc2fb.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <!--Header start from Here-->
+    <header><a href=""><img src="~/images/logo.png" alt="" /></a></header>
+    <!--Header End Here-->
+    <!--Body start from Here-->
+    <div class="mainCont">
+        <div class="quotesContainer">
+            @using (Html.BeginForm("CheckoutReview", "Index", FormMethod.Post))
+            {
+                <h1 class="m-30">You're good to go!</h1>
+                <div class="quotesCountBx">
+                    <div class="quotesCont_Left">
+                        <h2 class="m-10">Workers' Compensation</h2>
+                        <div class="compDetailList">
+                            <ul>
+                                <li>
+                                    <h3>Solo X</h3>
+                                    <div class="compDetailInn">
+                                        <p>Owner(s) excluded from workers' comp coverage  |  Accident policy included</p>
+                                        <div class="checkoutLimit m-30">Limits: <span><a href="javascript:void(0)" class="emplia">$100k/$500k/$100k</a></span>   |   <span><a href="javascript:void(0)" class="payroll">Edit</a></span></div>
+                                        <h4 class="m-10">
+                                            Waiver of Subrogation
+                                            <i class="tooltip">
+                                                ?
+                                                <span class="right">A WOS means your insurance company agrees to cover all payable damages and doesnât have the right to recover losses from your clientâs insurance. Otherwise, if you and your client are at fault for something, your insurance company might pay the claim and then try to recoup part of the damages from your clientâs insurance. </span>
+                                            </i>
+                                        </h4>
+                                        <div class="waiversubs m-30">
+                                            <div class="checkboxBx">
+                                                <label>
+                                                    @Html.CheckBoxFor(M => M.IsWaiverofSubrogation)
+                                                    <span class="checkmark"></span>
+                                                    <strong>Add a Waiver of Subrogation</strong><br /><small>*Additional charges may apply</small>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="backquote closepop"><i class="fa-solid fa-left-long"></i> &nbsp; <a href="">Back to workers' comp quotes</a></div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <h2>Carrier</h2>
+                                    <div class="carrierCont">
+                                        <h3>Solo X</h3>
+                                        <p>Solo X by SolePro. SolePro is an innovator when it comes to custom workers' compensation products, specifically focusing on the small business segment. Businesses with no employees, as well as new ventures, can face difficulties when it comes to accessing workers' compensation opportunities. SolePro has created that solution. Solo X is built to streamline workers' comp for owner-only businesses.</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <h2>What's Covered?</h2>
+                                    <div class="carrierCont">
+                                        <ul class="m-30">
+                                            <li>24-Hour Accident Coverage </li>
+                                            <li>Covers the owner(s) only </li>
+                                            <li>Pays cash benefits directly to you in the event of an accident </li>
+                                            <li>Renewable for life</li>
+                                            <li>Deductible: $0</li>
+                                        </ul>
+                                        <a href="">View Benefits</a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <h2>What's not covered?</h2>
+                                    <div class="carrierCont">
+                                        <p class="m-20">The Solo X workers' comp policy is an "Owner Excluded" policy. Owner(s) are excluded from workers' compensation coverages part one and two.</p>
+                                        <div class="partsList">
+                                            <strong>Part One: Workers' Compensation</strong>
+                                            <span class="m-30">Owner(s) Excluded from Coverage</span>
+                                            <strong>Part Two: Employers Liability </strong>
+                                            <span>Owner(s) Excluded from Coverage</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <h2>Payment</h2>
+                                    <div class="carrierCont">
+                                        <p class="m-20">This is a minimum premium policy that is paid in full, up front.</p>
+                                        <span><strong>Annual payment:</strong></span>
+                                        <span>Workers' Compensation Premium: $750</span>
+                                        <span>Accident Policy Premium: $179.52</span>
+                                        <span>Loss Control Fee: $50.00</span>
+                                        <span>State Fee: $0.00</span>
+                                        <span class="m-30">Credit Card Fee: $</span>
+                                        <span><strong>Total: $1,011.52</strong></span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <h2>Cancellation</h2>
+                                    <div class="carrierCont">
+                                        <p>Please note that this policy is fully <strong>earned and non-refundable.</strong> In the event that you cancel your policy, you will not receive a refund from the insurance carriers.</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="generalibrary">
+                            <h2 class="m-10">Your business <span><a href="javascript:void(0)" class="editbusiness">Edit App</a></span></h2>
+                            <h5 class="m-10">Hannah's Treats</h5>
+                            <span>Bake Shop</span>
+                            <span>2501 Maplewood Rd. Richmond, VA 23223</span>
+                            <span>W2 Employees: 0</span>
+                            <span>Rating Payroll: $0</span>
+                        </div>
+                    </div>
+                    <div class="quotesCount_Right">
+                        <div class="workerCompHd">
+                            <h2>Workers' comp + accident policy</h2>
+                            <span>Solo X</span>
+                        </div>
+                        <div class="policyamountBx">
+                            <div class="policyamount m-50">
+                                <h1>$1,050<sup>.22</sup></h1>
+                                <span>per year</span>
+                            </div>
+                            <div class="policyStart m-50"><i class="fa-solid fa-calendar-days"></i> Starts: <a href="">June 21</a></div>
+                            <div class="requestwaiverBtn">
+                                <button class="nextBtn" type="submit">Buy Now <i class="fa-solid fa-right-long"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+    <!--Body End Here-->
+    <!--Footer start from Here-->
+    <footer>
+        Copyright 2022 / <a href="">Privacy</a> / <a href="">Terms</a>
+    </footer>
+    <!--Footer End Here-->
+    <!--Quote Popup-->
+    <div class="overlay" id="liability">
+        <div class="popupContainer">
+            <div class="popupCLose closepop">X</div>
+            <h2 class="m-20">Employer's Liability Limits </h2>
+            <h4 class="m-20">
+                <strong>Limits</strong> <i class="tooltip">
+                    ?
+                    <span class="left">Select the amount of coverage you would like for each individual claim, along with the total limit for all claims in a given policy term, for each employee.</span>
+                </i>
+            </h4>
+            <div class="employerLimit">
+                <div class="empLimiInn m-50">
+                    <a href="#tab1" class="yesnoBx active">
+                        <input type="radio" name="certificate" id="radio8" />
+                        <label for="radio8">$100K/$500K/$100K</label>
+                        <div class="check"></div>
+                    </a>
+                    <a href="#tab2" class="yesnoBx">
+                        <input type="radio" name="certificate" id="radio9" />
+                        <label for="radio9">$500K/$500K/$500K</label>
+                        <div class="check"></div>
+                    </a>
+                    <a href="#tab3" class="yesnoBx">
+                        <input type="radio" name="certificate" id="radio10" />
+                        <label for="radio10">$1M/$1M/$1M</label>
+                        <div class="check"></div>
+                    </a>
+                </div>
+                <div class="empLimitTab" id="tab1" style="display: block;">
+                    <div class="peryear">
+                        <span>Per year</span>
+                        <h1>$1,273<sup>.47</sup></h1>
+                    </div>
+
+                </div>
+                <div class="empLimitTab" id="tab2">
+                    <div class="peryear m-20">
+                        <span>Per year</span>
+                        <h1>$1,052<sup>.47</sup></h1>
+                    </div>
+                    <div class="savechangesBtnBx">
+                        <button type="button" name="button" class="savechangeBtn">Save Changes</button>
+                    </div>
+                </div>
+                <div class="empLimitTab" id="tab3">
+                    <div class="peryear">
+                        <span>Per year</span>
+                        <h1>$1,052<sup>.47</sup></h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Quote Popup-->
+    <!--Request Waiver Popup-->
+    <div class="overlay" id="payroll_pop">
+        <div class="popupContainer">
+            <div class="popupCLose closepop">X</div>
+            <div class="requestwaiver_Outer">
+                <h1 class="m-10">Solo I </h1>
+                <h4 class="m-50">We just need to collect a few more details to sign you up for this policy.</h4>
+            </div>
+            <div class="form-group m-50">
+                <h3 class="m-20">Owner payroll</h3>
+                <div class="payrollFld">
+                    <input type="text" name="name" class="frmInp" />
+                    <i class="fa-solid fa-dollar-sign"></i>
+                </div>
+            </div>
+            <div class="form-group m-50">
+                <h3 class="m-20">Owner title</h3>
+                <div class="itemselect">
+                    <div class="custom-select">
+                        <select>
+                            <option value="0">Select</option>
+                            <option value="1">Here are the options</option>
+                            <option value="2">Here are the options</option>
+                            <option value="3">Here are the options</option>
+                            <option value="4">Here are the options</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="button-grpup">
+                <a href="javascript:void(0)" class="nextBtn applicationupdated">Save Changes</a>
+            </div>
+        </div>
+    </div>
+    <!--Request Waiver Popup-->
+    <!--Request Application Updated Popup-->
+    <div class="overlay" id="application_updated">
+        <div class="popupContainer">
+            <div class="popupCLose closepop">X</div>
+            <div class="requestwaiver_Outer">
+                <h1 class="m-10">Application updated! </h1>
+                <h4 class="m-50">You are approved for the Solo I policy. </h4>
+            </div>
+            <div class="button-grpup">
+                <a href="javascript:void(0)" class="nextBtn">Continue</a>
+            </div>
+        </div>
+    </div>
+    <!--Request Application Updated Popup-->
+    <!--Request Edit Business Popup-->
+    <div class="overlay" id="edit_business">
+        <div class="popupContainer">
+            <div class="popupCLose closepop">X</div>
+            <div class="genderassign tab1" style="display:block;">
+                <div class="requestwaiver_Outer">
+                    <h1 class="m-10">Solo X</h1>
+                    <h4 class="m-50">Solo X is a minimum premium workers' comp policy where the owner is excluded from workers' comp coverage. We will need to collect a few more details in order to sign you up.</h4>
+                </div>
+                <div class="genderBullets">
+                    <span class="active"></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="form-group m-50">
+                    <h3 class="m-20">Gender Assigned at Birth</h3>
+                    <div class="itemselect">
+                        <div class="custom-select">
+                            <select>
+                                <option value="0">Select</option>
+                                <option value="1">Here are the options</option>
+                                <option value="2">Here are the options</option>
+                                <option value="3">Here are the options</option>
+                                <option value="4">Here are the options</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="button-grpup">
+                    <button type="button" class="nextBtn continue1">Continue</button>
+                </div>
+            </div>
+            <div class="genderassign tab2">
+                <div class="requestwaiver_Outer">
+                    <h1 class="m-10">Solo X</h1>
+                    <h4 class="m-50">Solo X is a minimum premium workers' comp policy where the owner is excluded from workers' comp coverage. We will need to collect a few more details in order to sign you up.</h4>
+                </div>
+                <div class="genderBullets">
+                    <span class="active"></span>
+                    <span class="active"></span>
+                    <span></span>
+                </div>
+                <div class="form-group m-50">
+                    <h3 class="m-20">
+                        Beneficiary
+                        <i class="tooltip">
+                            ?
+                            <span class="right">Otherwise, if you and your client are at fault for something, your insurance company might pay the claim and then try to recoup part of the damages from your clientâs insurance. </span>
+                        </i>
+                    </h3>
+                    <div class="form-group m-30">
+                        <input type="text" name="name" class="frmInp" placeholder="First Name" />
+                    </div>
+                    <div class="form-group m-30">
+                        <input type="text" name="name" class="frmInp" placeholder="Last Name" />
+                    </div>
+                    <div class="form-group m-30">
+                        <input type="text" name="name" class="frmInp" placeholder="Relationship to owner" />
+                    </div>
+                </div>
+                <div class="button-grpup">
+                    <button type="button" class="nextBtn continue2">Continue</button>
+                </div>
+            </div>
+            <div class="genderassign tab3">
+                <div class="requestwaiver_Outer">
+                    <h1 class="m-10">Solo X</h1>
+                    <h4 class="m-50">We just need to collect a few more details to sign you up for this policy.</h4>
+                </div>
+                <div class="genderBullets">
+                    <span class="active"></span>
+                    <span class="active"></span>
+                    <span class="active"></span>
+                </div>
+                <div class="form-group m-30">
+                    <h3 class="m-20">Date of Birth</h3>
+                    <div class="srchOuter">
+                        <input type="text" name="name" id="datepicker" placeholder="MM/DD/YYYY" class="frmInp" />
+                        <button type="button" name="button" class="srchIcon"><i class="fa-regular fa-calendar-days"></i></button>
+                    </div>
+                </div>
+                <div class="form-group m-30">
+                    <h3 class="m-20">SSN</h3>
+                    <input type="text" name="name" class="frmInp" />
+                </div>
+                <div class="button-grpup">
+                    <button type="button" class="nextBtn">Save Changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Request Edit Business Popup-->
+    <script src="js/dropdown.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+
+    <script>
+        $(document).ready(function () {
+            /*Message Tab section*/
+            $(".empLimiInn a").on("click", function (e) {
+                e.preventDefault();
+                var webend = $(this).attr("href");
+                $(".empLimitTab").hide(0);
+                $(webend).show(0);
+                $(".empLimiInn a").removeClass("active");
+                $(this).addClass("active");
+            });
+
+            /*------------Popup--------------*/
+            $(".emplia").click(function () {
+                $("#liability").fadeIn();
+                $("body").addClass("overflow");
+            });
+            $(".closepop").click(function () {
+                $("#liability").fadeOut();
+                $("body").removeClass("overflow");
+            })
+            /*------------Popup--------------*/
+            $(".payroll").click(function () {
+                $("#payroll_pop").fadeIn();
+                $("body").addClass("overflow");
+            });
+            $(".closepop").click(function () {
+                $("#payroll_pop").fadeOut();
+                $("body").removeClass("overflow");
+            })
+
+            /*------------Popup--------------*/
+            $(".applicationupdated").click(function () {
+                $("#application_updated").fadeIn();
+                $("body").addClass("overflow");
+                $("#payroll_pop").fadeOut();
+            });
+            $(".closepop").click(function () {
+                $("#application_updated").fadeOut();
+                $("body").removeClass("overflow");
+            })
+
+            /*------------Popup--------------*/
+            $(".editbusiness").click(function () {
+                $("#edit_business").fadeIn();
+                $("body").addClass("overflow");
+                $("#payroll_pop").fadeOut();
+            });
+            $(".closepop").click(function () {
+                $("#edit_business").fadeOut();
+                $("body").removeClass("overflow");
+            })
+
+            /*------------reviewTab--------------*/
+            $(".continue1").click(function () {
+                $(".tab1").css("display", "none");
+                $(".tab3").css("display", "none");
+                $(".tab2").css("display", "block");
+            });
+            $(".continue2").click(function () {
+                $(".tab1").css("display", "none");
+                $(".tab2").css("display", "none");
+                $(".tab3").css("display", "block");
+            });
+
+
+        });
+    </script>
+    <!-- <script src="https://code.jquery.com/jquery-3.6.0.js"></script> -->
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+    <script>
+        $(function () {
+            $("#datepicker").datepicker();
+            $("#anim").on("change", function () {
+                $("#datepicker").datepicker("option", "showAnim", $(this).val());
+            });
+        });
+    </script>
+</body>
+</html>

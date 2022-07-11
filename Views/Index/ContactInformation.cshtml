@@ -1,0 +1,99 @@
+﻿@model PogoInsurance.Models.IndexViewModel
+
+@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0">
+    <title>Pogo Insurance</title>
+    <link href="~/Content/stylesheet.css" rel="stylesheet" />
+    <link href="~/Content/responsive.css" rel="stylesheet" />
+    <link rel="shortcut icon" href="~/favicon.ico" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/fbb15fc2fb.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <!--Header start from Here-->
+    <header><a href=""><img src="~/images/logo.png" alt="" /></a></header>
+    <!--Header End Here-->
+    <!--Body start from Here-->
+    <div class="mainCont">
+        <div class="container">
+            @using (Html.BeginForm("ContactInformation", "Index", FormMethod.Post))
+            {
+                <div class="backbtn"><a href="@Url.Action("TheTeam", "Index")"><i class="fa-solid fa-left-long"></i> Back</a></div>
+                <h1 class="m-10">Contact Information</h1>
+                <h4 class="m-50">We'll need this information to provide a quote.</h4>
+
+                <div class="businessStructure">
+                    <h3 class="m-20">Your Info</h3>
+                    <div class="form-group">
+                        @Html.TextBoxFor(m => m.contactDetails.FirstName, new { @class = "frmInp", placeholder = "First Name" })
+                    </div>
+                    <div class="form-group">
+                        @Html.TextBoxFor(m => m.contactDetails.LastName, new { @class = "frmInp", placeholder = "Last Name" })
+                    </div>
+                    <div class="form-group">
+                        @Html.TextBoxFor(m => m.contactDetails.Phone, new { @class = "frmInp", placeholder = "Phone" })
+                    </div>
+                    <div class="form-group">
+                        @Html.TextBoxFor(m => m.contactDetails.Email, new { @class = "frmInp", placeholder = "Email" })
+                    </div>
+                    <div class="checkboxBx m-50">
+                        <label>
+                            @Html.CheckBoxFor(m => m.IsOwner)
+                            <span class="checkmark"></span>
+                            I'm the owner
+                        </label>
+                    </div>
+                    <h3 class="m-20">
+                        Business name
+                        <i class="tooltip">
+                            ?
+                            <span class="left">As it should appear on your policy. Use your registered business name, which is what you use on your taxes.</span>
+                        </i>
+                    </h3>
+                    <div class="form-group">
+                        @Html.TextBoxFor(m => m.BusinessName, new { @class = "frmInp", placeholder = "Business Name" })
+                    </div>
+                    <div class="checkboxBx m-50">
+                        <label>
+                            @Html.CheckBoxFor(m => m.IsUseDBAName)
+                            <span class="checkmark"></span>
+                            <a href="">I use a DBA Name</a>
+                            <i class="tooltip">
+                                ?
+                                <span class="left">A ï¿½doing business asï¿½ name, aka trade name, assumed name or fictitious business name.</span>
+                            </i>
+                        </label>
+                    </div>
+                </div>
+                <h3 class="m-20">DBA name </h3>
+                <div class="form-group">
+                    @Html.TextBoxFor(m => m.DBAName, new { @class = "frmInp", placeholder = "DBA Name" })
+                </div>
+                <div class="button-grpup">
+                    <button class="nextBtn" type="submit">Next <i class="fa-solid fa-right-long"></i></button>
+                    @*<a href="quotes.html" class="nextBtn">Get Quotes <i class="fa-solid fa-right-long"></i></a>*@
+                </div>
+            }
+        </div>
+    </div>
+    <!--Body End Here-->
+    <!--Footer start from Here-->
+    <footer>
+        Copyright 2022 / <a href="">Privacy</a> / <a href="">Terms</a>
+    </footer>
+    <!--Footer End Here-->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+
+    <script src="~/Scripts/function.js"></script>
+</body>
+
+</html>
+

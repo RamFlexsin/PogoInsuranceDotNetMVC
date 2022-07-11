@@ -1,0 +1,189 @@
+﻿@model PogoInsurance.Models.AdditionalWorkersModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0">
+    <title>Pogo Insurance</title>
+    <link href="~/Content/stylesheet.css" rel="stylesheet" />
+    <link href="~/Content/responsive.css" rel="stylesheet" />
+    <link rel="shortcut icon" href="~/favicon.ico" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/fbb15fc2fb.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <!--Header start from Here-->
+    <header><a href=""><img src="~/images/logo.png" alt="" /></a></header>
+    <!--Header End Here-->
+    <!--Body start from Here-->
+    <div class="mainCont">
+        <div class="container">
+            @using (Html.BeginForm("AdditionalWorkers", "Index", FormMethod.Post))
+            {
+                <div class="backbtn"><a href="@Url.Action("Employees", "Index")"><i class="fa-solid fa-left-long"></i> Back</a></div>
+                <h1 class="m-10">Additional Workers</h1>
+                <h4 class="m-50">Tell us more about the people who work for you. </h4>
+                <div class="businessStructure m-50">
+                    <h3 class="m-20">Do you hire subcontractors?</h3>
+                    <div class="yesnoBxOuter m-20">
+                        <div class="half">
+                            <div class="yesnoBx">
+                                @Html.RadioButton("Subcontractor", "Yes", false, new { Id = "radio1" })
+                                <label for="radio1">Yes</label>
+                                <div class="check"></div>
+                            </div>
+                        </div>
+                        <div class="half">
+                            <div class="yesnoBx">
+                                @Html.RadioButton("Subcontractor", "No", false, new { Id = "radio2" })
+                                <label for="radio2">No</label>
+                                <div class="check"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="businessStructure m-50">
+                    <h3 class="m-20">Any sublet work without Certificates of Insurance?</h3>
+                    <div class="yesnoBxOuter m-20">
+                        <div class="half">
+                            <div class="yesnoBx">
+                                @Html.RadioButton("Certificate", "Yes", false, new { Id = "radio3" })
+                                <label for="radio3">Yes</label>
+                                <div class="check"></div>
+                            </div>
+                        </div>
+                        <div class="half">
+                            <div class="yesnoBx">
+                                @Html.RadioButton("Certificate", "No", false, new { Id = "radio4" })
+                                <label for="radio4">No</label>
+                                <div class="check"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="businessStructure m-50">
+                    <h3 class="m-10">Projected cost of uninsured subcontractors</h3>
+                    <div class="dollarFld m-10">
+                        @Html.TextBoxFor(m=>m.UninsuredSubcontractors, new { @class = "frmInp" })
+                        <i class="fa-solid fa-dollar-sign"></i>
+                    </div>
+                </div>
+                <div class="businessStructure m-50">
+                    <h3 class="m-20">Any seasonal employees?</h3>
+                    <div class="yesnoBxOuter m-20">
+                        <div class="half">
+                            <div class="yesnoBx">
+                                @Html.RadioButton("IsSeasonalEmployees", "Yes", false, new { Id = "radio5" })
+                                <label for="radio5">Yes</label>
+                                <div class="check"></div>
+                            </div>
+                        </div>
+                        <div class="half">
+                            <div class="yesnoBx">
+                                @Html.RadioButton("IsSeasonalEmployees", "No", false, new { Id = "radio6" })
+                                <label for="radio6">No</label>
+                                <div class="check"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="businessStructure m-50">
+                    <h3 class="m-20">Any volunteer or donated labor?</h3>
+                    <div class="yesnoBxOuter m-20">
+                        <div class="half">
+                            <div class="yesnoBx">
+                                @Html.RadioButton("IsDonatedLabor", "Yes", false, new { Id = "radio7" })
+                                <label for="radio7">Yes</label>
+                                <div class="check"></div>
+                            </div>
+                        </div>
+                        <div class="half">
+                            <div class="yesnoBx">
+                                @Html.RadioButton("IsDonatedLabor", "No", false, new { Id = "radio8" })
+                                <label for="radio8">No</label>
+                                <div class="check"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="businessStructure m-50">
+                    <h3 class="m-20">Any employees other than the owner or his/her relatives?</h3>
+                    <div class="yesnoBxOuter m-20">
+                        <div class="half">
+                            <div class="yesnoBx">
+                                @Html.RadioButton("IsOwnerRelative", "Yes", false, new { Id = "radio9" })
+                                <label for="radio9">Yes</label>
+                                <div class="check"></div>
+                            </div>
+                        </div>
+                        <div class="half">
+                            <div class="yesnoBx">
+                                @Html.RadioButton("IsOwnerRelative", "No", false, new { Id = "radio10" })
+                                <label for="radio10">No</label>
+                                <div class="check"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="businessStructure m-50">
+                    <h3 class="m-20">Any employees under 16 or over 60 years of age?</h3>
+                    <div class="yesnoBxOuter m-20">
+                        <div class="half">
+                            <div class="yesnoBx">
+                                @Html.RadioButton("IsOutAgeRange", "Yes", false, new { Id = "radio11" })
+                                <label for="radio11">Yes</label>
+                                <div class="check"></div>
+                            </div>
+                        </div>
+                        <div class="half">
+                            <div class="yesnoBx">
+                                @Html.RadioButton("IsOutAgeRange", "No", false, new { Id = "radio12" })
+                                <label for="radio12">No</label>
+                                <div class="check"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="businessStructure m-50">
+                    <h3 class="m-20">Does the business require physicals after offers of employment are made?</h3>
+                    <div class="yesnoBxOuter m-20">
+                        <div class="half">
+                            <div class="yesnoBx">
+                                @Html.RadioButton("IsRequirePhysicals", "Yes", false, new { Id = "radio13" })
+                                <label for="radio13">Yes</label>
+                                <div class="check"></div>
+                            </div>
+                        </div>
+                        <div class="half">
+                            <div class="yesnoBx">
+                                @Html.RadioButton("IsRequirePhysicals", "No", false, new { Id = "radio14" })
+                                <label for="radio14">No</label>
+                                <div class="check"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="button-grpup">
+                    <button class="nextBtn" type="submit">Next <i class="fa-solid fa-right-long"></i></button>
+                </div>
+            }
+        </div>
+    </div>
+    <!--Body End Here-->
+    <!--Footer start from Here-->
+    <footer>
+        Copyright 2022 / <a href="">Privacy</a> / <a href="">Terms</a>
+    </footer>
+    <!--Footer End Here-->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+    <script src="~/Scripts/function.js" crossorigin="anonymous"></script>
+
+</body>
+
+</html>
