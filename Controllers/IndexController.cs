@@ -31,6 +31,10 @@ namespace PogoInsurance.Controllers
         [HttpGet]
         public ActionResult coverageoptions()
         {
+            if(Session["IndexModel"]==null)
+            {
+                return RedirectToAction("Index");
+            }
             // storing static data in model for UI 
             var indexViewModel = JsonConvert.DeserializeObject<IndexViewModel>(Session["IndexModel"].ToString());
             List<CoverageOptions> coverageOptions = new List<CoverageOptions>();
@@ -52,6 +56,10 @@ namespace PogoInsurance.Controllers
         [HttpPost]
         public ActionResult coverageoptionsPost(IndexViewModel idx)
         {
+            if (Session["IndexModel"]==null)
+            {
+                return RedirectToAction("Index");
+            }
             // getting previously stored data in IndeViewModel 
             var index = JsonConvert.DeserializeObject<IndexViewModel>(Session["IndexModel"].ToString());
             index.Lookingfor=idx.Lookingfor.Where(a => a.ChkAnswer==true).ToList();
@@ -62,6 +70,10 @@ namespace PogoInsurance.Controllers
         [HttpGet]
         public ActionResult businessbasics()
         {
+            if (Session["IndexModel"]==null)
+            {
+                return RedirectToAction("Index");
+            }
             // storing static data in model for UI 
             var index = JsonConvert.DeserializeObject<IndexViewModel>(Session["IndexModel"].ToString());
             List<BusinessStructure> businessStructure = new List<BusinessStructure>();
@@ -80,6 +92,10 @@ namespace PogoInsurance.Controllers
         [HttpPost]
         public ActionResult businessbasics(IndexViewModel idx)
         {
+            if (Session["IndexModel"]==null)
+            {
+                return RedirectToAction("Index");
+            }
             // getting previously stored data in IndeViewModel 
             var index = JsonConvert.DeserializeObject<IndexViewModel>(Session["IndexModel"].ToString());
             index.BusinessStructure=index.BusinessStructure.Where(a => a.Id==idx.SelectedBusiness).ToList();
@@ -94,6 +110,10 @@ namespace PogoInsurance.Controllers
         [HttpGet]
         public ActionResult TheTeam()
         {
+            if (Session["IndexModel"]==null)
+            {
+                return RedirectToAction("Index");
+            }
             // storing static data in model for UI 
             var index = JsonConvert.DeserializeObject<IndexViewModel>(Session["IndexModel"].ToString());
             index.NumberofEmployees=2;
@@ -104,6 +124,10 @@ namespace PogoInsurance.Controllers
         [HttpPost]
         public ActionResult TheTeam(IndexViewModel idx)
         {
+            if (Session["IndexModel"]==null)
+            {
+                return RedirectToAction("Index");
+            }
             // getting previously stored data in IndeViewModel 
             var index = JsonConvert.DeserializeObject<IndexViewModel>(Session["IndexModel"].ToString());
             index.NumberofEmployees=idx.NumberofEmployees;
@@ -122,6 +146,10 @@ namespace PogoInsurance.Controllers
         [HttpPost]
         public ActionResult ContactInformation(IndexViewModel idx)
         {
+            if (Session["IndexModel"]==null)
+            {
+                return RedirectToAction("Index");
+            }
             // getting previously stored data in IndeViewModel 
             var index = JsonConvert.DeserializeObject<IndexViewModel>(Session["IndexModel"].ToString());
             var contact = new ContactDetails();
@@ -205,6 +233,10 @@ namespace PogoInsurance.Controllers
         [HttpPost]
         public ActionResult Quote(GetQuoteModel QM)
         {
+            if (Session["QuoteModel"]==null)
+            {
+                return RedirectToAction("Index");
+            }
             // getting previously stored data in QuoteModel 
             var quoteModel = JsonConvert.DeserializeObject<GetQuoteModel>(Session["QuoteModel"].ToString());
             quoteModel.Compensations=quoteModel.Compensations.Where(a => a.CompensationId==QM.SelectedCompensation).ToList();
@@ -254,6 +286,10 @@ namespace PogoInsurance.Controllers
         [HttpPost]
         public ActionResult WorkerComp(WorkerCompCoverageModel worker)
         {
+            if (Session["WorkerCompCoverageModel"]==null)
+            {
+                return RedirectToAction("Index");
+            }
             var quoteModel = JsonConvert.DeserializeObject<WorkerCompCoverageModel>(Session["WorkerCompCoverageModel"].ToString());
             quoteModel.EmployersLiabilityLimits=quoteModel.EmployersLiabilityLimits.Where(a => a.LimitId==worker.EmployersLiabilityLimitSelected).ToList();
             quoteModel.EmployersLiabilityLimitSelected=worker.EmployersLiabilityLimitSelected;
@@ -283,6 +319,10 @@ namespace PogoInsurance.Controllers
         [HttpPost]
         public ActionResult OwnersDetail(FormCollection form)
         {
+            if (Session["OwnerDetailModel"]==null)
+            {
+                return RedirectToAction("Index");
+            }
             List<OwnerDetail> ownerDetails = new List<OwnerDetail>();
             OwnerDetailModel ownerDetailModel = new OwnerDetailModel();
             var quoteModel = JsonConvert.DeserializeObject<OwnerDetailModel>(Session["OwnerDetailModel"].ToString());
@@ -338,6 +378,10 @@ namespace PogoInsurance.Controllers
         [HttpPost]
         public ActionResult Employees(EmployeeModel emp)
         {
+            if (Session["EmployeeModel"]==null)
+            {
+                return RedirectToAction("Index");
+            }
             var employee = JsonConvert.DeserializeObject<EmployeeModel>(Session["EmployeeModel"].ToString());
             employee.LocationLists=employee.LocationLists.Where(a => a.LocationId==emp.Location).ToList();
             employee.Duties=emp.Duties;

@@ -1,22 +1,22 @@
 $(function() {
 	$('[data-decrease]').click(decrease);
 	$('[data-increase]').click(increase);
-	$('[data-value]').change(valueChange);
+	$('[data-val]').change(valueChange);
 });
 
 function decrease() {
-	var value = $(this).parent().find('[data-value]').val();
+	var value = $(this).parent().find('[data-val]').val();
 	if(value > 1) {
 		value--;
-		$(this).parent().find('[data-value]').val(value);
+		$(this).parent().find('[data-val]').val(value);
 	}
 }
 
 function increase() {
-	var value = $(this).parent().find('[data-value]').val();
+	var value = $(this).parent().find('[data-val]').val();
 	if(value < 100) {
 		value++;
-		$(this).parent().find('[data-value]').val(value);
+		$(this).parent().find('[data-val]').val(value);
 	}
 }
 
