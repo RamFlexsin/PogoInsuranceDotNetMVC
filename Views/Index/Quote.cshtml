@@ -14,6 +14,9 @@
     <link href="~/Content/responsive.css" rel="stylesheet" />
     <link rel="shortcut icon" href="~/favicon.ico" type="image/x-icon">
     <script src="https://kit.fontawesome.com/fbb15fc2fb.js" crossorigin="anonymous"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+    <script src="~/Scripts/JS/Quote.js" crossorigin="anonymous"></script>
+    @*<script src="/js/function.js" crossorigin="anonymous"></script>*@
 </head>
 <body>
 
@@ -37,14 +40,14 @@
                                 @Html.RadioButton("SelectedCompensation", @Model.Compensations[i].CompensationId, false, new { Id = @Model.Compensations[i].CompensationId })
                                
                                 <label for="@Model.Compensations[i].CompensationId">
-                                    <h3>@Model.Compensations[i].CompensationTitle</h3>
+                                    <h3 id="spn_@Model.Compensations[i].CompensationId">@Model.Compensations[i].CompensationTitle</h3>
                                     <p>
                                         @Model.Compensations[i].CompensationDescription<br />
                                         <strong>Limits: @Model.Compensations[i].CompensationLimits </strong> &nbsp; | &nbsp; <a href="javascript:void(0)" class="quoteDetPop">Details</a>
                                     </p>
                                 </label>
 
-                                <div class="compensat_amount">
+                                <div class="compensat_amount" id="Div_@Model.Compensations[i].CompensationId">
                                     $@Model.Compensations[i].CompensationAmount.ToString().Split('.').Select(a => a).FirstOrDefault()<sup>.@Model.Compensations[i].CompensationAmount.ToString().Split('.').Select(a => a).LastOrDefault()</sup>
                                 </div>
 
@@ -71,14 +74,14 @@
                     <div class="quotesCount_Right">
                         <div class="workerCompHd">
                             <h2>Workers' comp + accident policy</h2>
-                            <span>Solo X</span>
+                            <span id="spnProduct">Solo X</span>
                         </div>
                         <div class="policyamountBx">
                             <div class="policyamount m-50">
-                                <h1>
+                                <h1 id="spnProductAmt">
                                     $@Model.PolicyAmount.ToString().Split('.').Select(a => a).FirstOrDefault()<sup>.@Model.PolicyAmount.ToString().Split('.').Select(a => a).LastOrDefault()</sup>
                                 </h1>
-                                <span>@Model.Tenure</span>
+                                <span >@Model.Tenure</span>
                             </div>
                             <div class="policyStart m-50"><i class="fa-solid fa-calendar-days"></i> Starts: <a href="">@Model.PolicyStartDate.ToString("MMM yyyy")</a></div>
                             <div class="requestwaiverBtn">
@@ -336,8 +339,6 @@
     </div>
     <!--Request Waiver Popup-->
 
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
-    <script src="/js/function.js" crossorigin="anonymous"></script>
     <script>
         $(document).ready(function () {
 

@@ -14,6 +14,9 @@
     <link href="~/Content/stylesheet.css" rel="stylesheet" type="text/css">
     <link href="~/Content/responsive.css" rel="stylesheet" type="text/css">
     <script src="https://kit.fontawesome.com/fbb15fc2fb.js" crossorigin="anonymous"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+    @*<script src="~/Scripts/function.js" crossorigin="anonymous"></script>*@
+    <script src="~/Scripts/JS/BusinessLocation.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
@@ -38,20 +41,21 @@
                         <h2 class="m-10">Primary business address </h2>
                         <h4 class="m-30">(You cannot get a quote with a PO box.) </h4>
                         <div class="form-group">
-                            @Html.TextBoxFor(m=>m.PrimaryStreet, new { placeholder = "Street", @class="frmInp" })
+                            @Html.TextBoxFor(m=>m.PrimaryStreet, new { placeholder = "Street", @class="frmInp", required="" })
                         </div>
                         <div class="form-group">
-                            @Html.TextBoxFor(m => m.PrimaryCity, new { placeholder = "City", @class = "frmInp" })
+                            @Html.TextBoxFor(m => m.PrimaryCity, new { placeholder = "City", @class = "frmInp", required = "" })
                         </div>
                         <div class="frmhalfouter">
                             <div class="half">
                                 <div class="form-group">
-                                    @Html.TextBoxFor(m => m.PrimaryState, new { placeholder = "State", @class = "frmInp" })
+                                    @*@Html.TextBoxFor(m => m.PrimaryState, new { placeholder = "State", @class = "frmInp" })*@
+                                    @Html.DropDownList("PrimaryState", new SelectList(ViewBag.StateList, "StateCode", "StateName"), new { Id = "PrimaryState", @class = "frmInp" })
                                 </div>
                             </div>
                             <div class="half">
                                 <div class="form-group">
-                                    @Html.TextBoxFor(m => m.PrimaryZipCode, new { placeholder = "Zip", @class = "frmInp" })
+                                    @Html.TextBoxFor(m => m.PrimaryZipCode, new { placeholder = "Zip", @class = "frmInp", required = "" })
                                 </div>
                             </div>
                         </div>
@@ -78,7 +82,8 @@
                         <div class="frmhalfouter">
                             <div class="half">
                                 <div class="form-group">
-                                    @Html.TextBoxFor(m => m.MailingState, new { placeholder = "State", @class = "frmInp" })
+                                    @*@Html.TextBoxFor(m => m.MailingState, new { placeholder = "State", @class = "frmInp" })*@
+                                    @Html.DropDownList("MailingState", new SelectList(ViewBag.StateList, "StateCode", "StateName"), new { Id = "MailingState", @class = "frmInp" })
                                 </div>
                             </div>
                             <div class="half">
@@ -106,8 +111,7 @@
         Copyright 2022 / <a href="">Privacy</a> / <a href="">Terms</a>
     </footer>
     <!--Footer End Here-->
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
-    <script src="~/Scripts/function.js" crossorigin="anonymous"></script>
+   
     <script>
         $(document).ready(function () {
             $('#MailingAddress').hide();

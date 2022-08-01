@@ -12,8 +12,14 @@
     <title>Pogo Insurance</title>
     <link href="~/Content/stylesheet.css" rel="stylesheet" />
     <link href="~/Content/responsive.css" rel="stylesheet" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="~/Scripts/JS/BusinessBasics.js"></script>
+    <script src="~/Scripts/JS/Common.js"></script>
     <link rel="shortcut icon" href="~/favicon.ico" type="image/x-icon">
     <script src="https://kit.fontawesome.com/fbb15fc2fb.js" crossorigin="anonymous"></script>
+
+    @*<script src="~/Scripts/function.js"></script>*@
 </head>
 <body>
 
@@ -46,49 +52,123 @@
 
                         }
 
-                        <div class="itemselect">
-                            <div class="custom-select">
-                                @Html.DropDownListFor(M => M.SelectedItem, new SelectList(Model.SelectedList, "Id", "Name"))
+                        @*<div class="itemselect">
+                                <div class="custom-select">
+                                    @Html.DropDownListFor(M => M.SelectedItem, new SelectList(Model.SelectedList, "Id", "Name"))
 
-                            </div>
-                        </div>
+                                </div>
+                            </div>*@
                     </div>
-                    <div class="businessStructure">
+                    @*<div class="businessStructure">*@
                         <div class="startbusiness m-50">
                             <h3 class="m-10">What year did you start your business?</h3>
                             <div class="form-group">
                                 @Html.TextBoxFor(m => m.BusinessStartDate, new { type = "Date", @class = "frmInp" })
                             </div>
                         </div>
-                    </div>
-                    <div class="businessStructure m-50">
-                        <div class="startbusiness m-10">
-                            <h3 class="m-10">
-                                FEIN <i class="tooltip">
-                                    ?
-                                    <span class="left">In workers' comp, the type of work is referred to as a "class code".</span>
-                                </i>
-                            </h3>
-                            <div class="form-group">
-                                @Html.TextBoxFor(m => m.FEIN, new { @class = "frmInp" })
+                    @*</div>*@
+                    @if (Model.Lookingfor.Where(a => (a.DataId == "Cov01") || (a.DataId == "Cov04")).ToList().Count > 0)
+                    {
+                        <div class="businessStructure">
+                            <div class="startbusiness m-50">
+                                <h3 class="m-20">How many years of industry experience do you have?</h3>
+                                <div class="numberOwners">
+                                    <a class="btn-decrease" data-decrease onclick="decrease('#IndustryExperience')">-</a>
+                                    @Html.TextBoxFor(m => m.IndustryExperience, new { value = @Model.IndustryExperience })
+                                    <a class="btn-increase" data-increase onclick="increase('#IndustryExperience')">+</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    }
+
+                    @if (Model.Lookingfor.Where(a => (a.DataId == "Cov01") || (a.DataId == "Cov03") || (a.DataId == "Cov04")).ToList().Count > 0)
+                    {
+                        <div class="businessStructure" id="DIVFEIN">
+                            <div class="businessStructure m-50">
+                                <div class="startbusiness m-10">
+                                    <h3 class="m-10">
+                                        Do you have an FEIN? <i class="tooltip">
+                                            ?
+                                            <span class="left">?] Workers’ comp insurance companies require an FEIN to provide a workers’ comp quote. You can apply for an FEIN online at https://sa.www4.irs.gov/modiein/individual/index.jsp</span>
+                                        </i>
+                                    </h3>
+                                    <div class="yesnoBxOuter m-20">
+                                        <div class="half">
+                                            <div class="yesnoBx">
+                                                @Html.RadioButton("HaveFEIN", "Yes", false, new { Id = "checkbox6" })
+                                                <label for="checkbox6">Yes</label>
+                                                <div class="check"></div>
+                                            </div>
+                                        </div>
+                                        <div class="half">
+                                            <div class="yesnoBx">
+                                                @Html.RadioButton("HaveFEIN", "No", false, new { Id = "checkbox7" })
+                                                <label for="checkbox7">No</label>
+                                                <div class="check"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="businessStructure m-50" id="DIVHaveFEIN">
+                                <div class="startbusiness m-10">
+                                    <h3 class="m-10">
+                                        FEIN
+                                    </h3>
+                                    <div class="form-group">
+                                        @Html.TextBoxFor(m => m.FEIN, new { @class = "frmInp", placeholder = "Enter FEIN" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="businessStructure m-50" id="DIVSSN">
+                                <div class="startbusiness m-10">
+                                    <h3 class="m-10">
+                                        SSN
+                                    </h3>
+                                    <div class="form-group">
+                                        @Html.TextBoxFor(m => m.SSN, new { @class = "frmInp", placeholder = "Enter SSN" })
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
                 </div>
-                <h1 class="m-50">Financial Information</h1>
-                <div class="businessStructure m-50">
-                    <h3 class="m-10">
-                        Esimated Revenue
-                        <i class="tooltip">
-                            ?
-                            <span class="left">Enter your projected revenue over the next 12 months-- before expenses.</span>
-                        </i>
-                    </h3>
-                    <div class="dollarFld">
-                        @Html.TextBoxFor(m => m.EsimatedRevenue, new { @class = "frmInp" })
-                        <i class="fa-solid fa-dollar-sign"></i>
+                if (Model.Lookingfor.Where(a => (a.DataTitle.Contains("General Liability Insurance")) || (a.DataTitle.Contains("Professional Liability Insurance"))).ToList().Count > 0)
+                {
+                    <div class="businessStructure" id="FinancialSection">
+                        <h1 class="m-50">Financial Information</h1>
+                        <div class="businessStructure m-50">
+                            <h3 class="m-10">
+                                Esimated Revenue
+                                <i class="tooltip">
+                                    ?
+                                    <span class="left">Enter your projected revenue over the next 12 months-- before expenses.</span>
+                                </i>
+                            </h3>
+                            <div class="dollarFld">
+                                @Html.TextBoxFor(m => m.EsimatedRevenue, new { @class = "frmInp", placeholder = "Enter Esimated Revenue" })
+                                <i class="fa-solid fa-dollar-sign"></i>
+                            </div>
+                        </div>
+
                     </div>
-                </div>
+                }
+                if (Model.Lookingfor.Where(a =>a.DataId != "Cov03").ToList().Count > 0)
+                {
+                    <div class="businessStructure m-50" id="DivAnnualPayroll">
+                        <h3 class="m-10">
+                            What’s the total annual payroll for your business?
+                            <i class="tooltip">
+                                ?
+                                <span class="left">This includes things like salaries, commissions, bonuses and overtime</span>
+                            </i>
+                        </h3>
+                        <div class="dollarFld">
+                            @Html.TextBoxFor(m => m.AnnualPayroll, new { @class = "frmInp", placeholder = "Enter Annual Payroll" })
+                            <i class="fa-solid fa-dollar-sign"></i>
+                        </div>
+                    </div>
+                }
                 <div class="button-grpup">
                     <button class="nextBtn" type="submit">Next <i class="fa-solid fa-right-long"></i></button>
                     @*<a href="the-team.html" class="nextBtn">Next <i class="fa-solid fa-right-long"></i></a>*@

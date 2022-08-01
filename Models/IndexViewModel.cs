@@ -6,7 +6,7 @@ namespace PogoInsurance.Models
     public class IndexViewModel
     {
         #region Index View Properties
-        public int PrimaryZipcode { get; set; }
+        public string PrimaryZipcode { get; set; }
         public string TypeofWork { get; set; }
         #endregion
 
@@ -20,8 +20,12 @@ namespace PogoInsurance.Models
         public List<BusinessStructure> SelectedList { get; set; }
         public List<BusinessStructure> BusinessStructure { get; set; }
         public DateTime? BusinessStartDate { get; set; }
+        public int IndustryExperience { get; set; }
         public string FEIN { get; set; }
+        public string HaveFEIN { get; set; }
+        public string SSN { get; set; }
         public decimal EsimatedRevenue { get; set; }
+        public decimal AnnualPayroll { get; set; }
         #endregion
 
         #region The Team View Properties

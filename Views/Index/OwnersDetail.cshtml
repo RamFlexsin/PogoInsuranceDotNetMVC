@@ -47,12 +47,18 @@
                     <div class="businessStructure m-30">
                         <h3 class="m-10">Type of work</h3>
                         <h4 class="m-20">Enter the primary type of work this owner performs</h4>
-                        <div class="form-group m-30">
-                            <div class="srchOuter">
-                                <input type="text" id="TypeOfWork1" name="TypeOfWork1" class="frmInp" />
-                                <button type="button" name="button" class="srchIcon"><i class="fa-solid fa-magnifying-glass"></i></button>
+                        <div class="itemselect">
+                            <div class="custom-select">
+                                @Html.DropDownList("TypeOfWork1", new SelectList(ViewBag.TypeOfWork, "ClassCode", "Description"), new { Id = "TypeOfWork1" })
+
                             </div>
                         </div>
+                        @*<div class="form-group m-30">
+                                <div class="srchOuter">
+                                    <input type="text" id="TypeOfWork1" name="TypeOfWork1" class="frmInp" />
+                                    <button type="button" name="button" class="srchIcon"><i class="fa-solid fa-magnifying-glass"></i></button>
+                                </div>
+                            </div>*@
                     </div>
                     <div class="businessStructure m-50">
                         <h3 class="m-10">Location</h3>
@@ -67,7 +73,7 @@
                         <h3 class="m-10">Title</h3>
                         <div class="itemselect">
                             <div class="custom-select">
-                                @Html.DropDownList("ddlTitle1", new SelectList(ViewBag.LocationList, "LocationId", "LocationName"), new { Id = "ddlTitle1" })
+                                @Html.DropDownList("ddlTitle1", new SelectList(ViewBag.titles, "Value", "Title"), new { Id = "ddlTitle1" })
 
                             </div>
                         </div>
@@ -86,6 +92,15 @@
                             <div class="srchOuter">
                                 <input type="Date" id="DateOfBirth1" name="DateOfBirth1" placeholder="MM/DD/YYYY" class="frmInp" />
                                 @*<button type="button" name="button" class="srchIcon"><i class="fa-regular fa-calendar-days"></i></button>*@
+                            </div>
+                        </div>
+                    </div>
+                    <div class="businessStructure m-30">
+                        <h3 class="m-10 highlight">Owner 1 Percent Ownership</h3>
+                        <div class="form-group m-50">
+                            <div class="srchOuter">
+                                <input type="text" name="PartnershipPercent1" id="PartnershipPercent1" class="frmInp" value="0" />
+                                <button type="button" name="button" class="srchIcon"><i class="fa-solid fa-percent"></i></button>
                             </div>
                         </div>
                     </div>
@@ -109,12 +124,18 @@
                     <div class="businessStructure m-30">
                         <h3 class="m-10">Type of work</h3>
                         <h4 class="m-20">Enter the primary type of work this owner performs</h4>
-                        <div class="form-group m-30">
-                            <div class="srchOuter">
-                                <input type="text" id="TypeOfWork2" name="TypeOfWork2" class="frmInp" />
-                                <button type="button" name="button" class="srchIcon"><i class="fa-solid fa-magnifying-glass"></i></button>
+                        <div class="itemselect">
+                            <div class="custom-select">
+                                @Html.DropDownList("TypeOfWork2", new SelectList(ViewBag.TypeOfWork, "ClassCode", "Description"), new { Id = "TypeOfWork2" })
+
                             </div>
                         </div>
+                        @*<div class="form-group m-30">
+                                <div class="srchOuter">
+                                    <input type="text" id="TypeOfWork2" name="TypeOfWork2" class="frmInp" />
+                                    <button type="button" name="button" class="srchIcon"><i class="fa-solid fa-magnifying-glass"></i></button>
+                                </div>
+                            </div>*@
                     </div>
                     <div class="businessStructure m-50">
                         <h3 class="m-10">Location</h3>
@@ -129,7 +150,7 @@
                         <h3 class="m-10">Title</h3>
                         <div class="itemselect">
                             <div class="custom-select">
-                                @Html.DropDownList("ddlTitle2", new SelectList(ViewBag.LocationList, "LocationId", "LocationName"))
+                                @Html.DropDownList("ddlTitle2", new SelectList(ViewBag.titles, "Value", "Title"), new { Id = "ddlTitle2" })
 
                             </div>
                         </div>
@@ -148,6 +169,15 @@
                             <div class="srchOuter">
                                 <input type="Date" id="DateOfBirth2" name="DateOfBirth2" placeholder="MM/DD/YYYY" class="frmInp" />
                                 @*<button type="button" name="button" class="srchIcon"><i class="fa-regular fa-calendar-days"></i></button>*@
+                            </div>
+                        </div>
+                    </div>
+                    <div class="businessStructure m-30">
+                        <h3 class="m-10 highlight">Owner 2 Percent Ownership</h3>
+                        <div class="form-group m-50">
+                            <div class="srchOuter">
+                                <input type="text" name="PartnershipPercent2" id="PartnershipPercent2" class="frmInp" value="0" />
+                                <button type="button" name="button" class="srchIcon"><i class="fa-solid fa-percent"></i></button>
                             </div>
                         </div>
                     </div>
@@ -172,12 +202,18 @@
                     <div class="businessStructure m-30">
                         <h3 class="m-10">Type of work</h3>
                         <h4 class="m-20">Enter the primary type of work this owner performs</h4>
-                        <div class="form-group m-30">
-                            <div class="srchOuter">
-                                <input type="text" id="TypeOfWork3" name="TypeOfWork3" class="frmInp" />
-                                <button type="button" name="button" class="srchIcon"><i class="fa-solid fa-magnifying-glass"></i></button>
+                        <div class="itemselect">
+                            <div class="custom-select">
+                                @Html.DropDownList("TypeOfWork3", new SelectList(ViewBag.TypeOfWork, "ClassCode", "Description"), new { Id = "TypeOfWork3" })
+
                             </div>
                         </div>
+                        @*<div class="form-group m-30">
+                                <div class="srchOuter">
+                                    <input type="text" id="TypeOfWork3" name="TypeOfWork3" class="frmInp" />
+                                    <button type="button" name="button" class="srchIcon"><i class="fa-solid fa-magnifying-glass"></i></button>
+                                </div>
+                            </div>*@
                     </div>
                     <div class="businessStructure m-50">
                         <h3 class="m-10">Location</h3>
@@ -192,8 +228,7 @@
                         <h3 class="m-10">Title</h3>
                         <div class="itemselect">
                             <div class="custom-select">
-                                @Html.DropDownList("ddlTitle3", new SelectList(ViewBag.LocationList, "LocationId", "LocationName"))
-
+                                @Html.DropDownList("ddlTitle3", new SelectList(ViewBag.titles, "Value", "Title"), new { Id = "ddlTitle3" })
                             </div>
                         </div>
                     </div>
@@ -214,22 +249,24 @@
                             </div>
                         </div>
                     </div>
+                    <div class="businessStructure m-30">
+                        <h3 class="m-10 highlight">Owner 3 Percent Ownership</h3>
+                        <div class="form-group m-50">
+                            <div class="srchOuter">
+                                <input type="text" name="PartnershipPercent3" id="PartnershipPercent3" class="frmInp" value="0" />
+                                <button type="button" name="button" class="srchIcon"><i class="fa-solid fa-percent"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
                 <div class="addanotherBtnBx m-50">
                     <a href="javascript:void(0)" class="addanotherBtn">+ Add another owner</a>
                 </div>
-                <div class="businessStructure m-30">
-                    <h3 class="m-10 highlight">Owner 1 Percent Ownership</h3>
-                    <div class="form-group m-50">
-                        <div class="srchOuter">
-                            <input type="text" name="PartnershipPercent" id="PartnershipPercent" class="frmInp" />
-                            <button type="button" name="button" class="srchIcon"><i class="fa-solid fa-percent"></i></button>
-                        </div>
-                    </div>
-                </div>
+
                 <div class="button-grpup">
                     @*<a href="employees.html" class="nextBtn">Next <i class="fa-solid fa-right-long"></i></a>*@
-                    <button class="nextBtn"  type="submit">Next <i class="fa-solid fa-right-long"></i></button>
+                    <button class="nextBtn" type="submit">Next <i class="fa-solid fa-right-long"></i></button>
                 </div>
             }
         </div>
@@ -244,76 +281,99 @@
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
     <script src="~/Scripts/function.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
-        $(document).on("click", "#customerButton", function () {
-
-            var OwnerDetail = [];
-            var rowidx = parseInt($("#hdnRows").val());
-            for (var i = 1; i <= rowidx; i++) {
-
-                var OwnerModel = {
-                    "FirstName": $('#FirstName' + i + '').val(),
-                    "LastName": $('#LastName' + i + '').val(),
-                    "Phone": $('#Phone' + i + '').val(),
-                    "Email": $('#Email' + i + '').val(),
-                    "TypeOfWork": $('#TypeOfWork' + i + '').val(),
-                    "Location": $('#ddlLocation' + i + '').val(),
-                    "Title": $('#ddlTitle' + i + '').val(),
-                    "OwnerPayroll": $('#OwnerPayroll' + i + '').val(),
-                    "DateOfBirth": $('#DateOfBirth' + i + '').val(),
-                    "LocationId": $('#ddlLocation' + i + '').val(),
-                    "TitleId": $('#ddlTitle' + i + '').val(),
-
-                };
-                OwnerDetail.push(OwnerModel);
-            }
-
-            var ownerDetailModel = {
-                "PartnershipPercent": $('#PartnershipPercent').val(),
-                "OwnerDetails": OwnerDetail,
-                "LocationLists": null
-            };
-
-            var urlprefix = "";
-            if (!window.location.origin.includes("localhost")) {
-                urlprefix = window.location.origin;
-            }
-
-            debugger;
-            $.ajax({
-                type: "POST",
-                url: urlprefix + "/Index/OwnersDetail",
-                dataType: 'json',
-                data: ownerDetailModel, //JSON.stringify(ownerDetailModel),
-                success: function (res) {
-                    if (res) {
-                        window.location.href = urlprefix + "/Index/Employees";
-                    } else {
-                        console.log(res);
-                        alert('console: ' + res);
-                    }
-
-                },
-                error: function (xhr) {
-                    console.log(xhr);
-                    alert('error: ' + xhr.responseText);
-
+           @* $(document).on("click", "#customerButton", function () {
+                debugger;
+                var OwnerDetail = [];
+                var rowidx = parseInt($("#hdnRows").val());
+                var percentage = parseFloat($("#PartnershipPercent1").val()) + parseFloat($("#PartnershipPercent2").val()) + parseFloat($("#PartnershipPercent3").val());
+                if (percentage < 100) {
+                    alert('Total Partnership Percent Should Be 100%');
+                    return;
                 }
-            });
+                for (var i = 1; i <= rowidx; i++) {
 
-        });
-        //$(document).ready(function() {
-        //    $('.addanotherBtn').click(function(){
-        //        var newel = $('.addownerOuter').clone();
-        //        $(newel).insertAfter(".addownerOuter:last");
-        //    });
-        //});
+                    var OwnerModel = {
+                        "FirstName": $('#FirstName' + i + '').val(),
+                        "LastName": $('#LastName' + i + '').val(),
+                        "Phone": $('#Phone' + i + '').val(),
+                        "Email": $('#Email' + i + '').val(),
+                        "TypeOfWork": $('#TypeOfWork' + i + '').val(),
+                        "Location": $('#ddlLocation' + i + '').val(),
+                        "Title": $('#ddlTitle' + i + '').val(),
+                        "OwnerPayroll": $('#OwnerPayroll' + i + '').val(),
+                        "DateOfBirth": $('#DateOfBirth' + i + '').val(),
+                        "LocationId": $('#ddlLocation' + i + '').val(),
+                        "TitleId": $('#ddlTitle' + i + '').val(),
+                        "PartnershipPercent": $('#PartnershipPercent' + i + '').val(),
+                    };
+                    OwnerDetail.push(OwnerModel);
+                }
+
+                var ownerDetailModel = {
+
+                    "OwnerDetails": OwnerDetail,
+                    "LocationLists": null
+                };
+
+                var urlprefix = "";
+                if (!window.location.origin.includes("localhost")) {
+                    urlprefix = window.location.origin;
+                }
+
+                debugger;
+                $.ajax({
+                    type: "POST",
+                    url: urlprefix + "/Index/OwnersDetail",
+                    dataType: 'json',
+                    data: ownerDetailModel, //JSON.stringify(ownerDetailModel),
+                    success: function (res) {
+                        if (res) {
+                            window.location.href = urlprefix + "/Index/Employees";
+                        } else {
+                            console.log(res);
+                            alert('console: ' + res);
+                        }
+
+                    },
+                    error: function (xhr) {
+                        console.log(xhr);
+                        alert('error: ' + xhr.responseText);
+
+                    }
+                });
+
+            });
+            //$(document).ready(function() {
+            //    $('.addanotherBtn').click(function(){
+            //        var newel = $('.addownerOuter').clone();
+            //        $(newel).insertAfter(".addownerOuter:last");
+            //    });
+            //});*@
 
 
 
     </script>
     <script type="text/javascript">
-        $(document).ready(function () {
+        $(document).on("click", ".nextBtn", function () {
             debugger;
+            var percentage1 = parseFloat($("#PartnershipPercent1").val());
+            var percentage2 = parseFloat($("#PartnershipPercent2").val());
+            var percentage3 = parseFloat($("#PartnershipPercent3").val());
+            var percentage = percentage1 + percentage2 + percentage3;
+            if (percentage < 100) {
+                alert('Total Partnership Percent Should Be 100%');
+                return false;
+            }
+        });
+
+        $(document).ready(function () {
+            if ('@ViewBag.Owner' != null) {
+                $("#FirstName1").val('@ViewBag.Owner.FirstName');
+                $("#LastName1").val('@ViewBag.Owner.LastName');
+                $("#Phone1").val('@ViewBag.Owner.Phone');
+                $("#Email1").val('@ViewBag.Owner.Email');
+            }
+
             var rowidx = parseInt($("#hdnRows").val());
             if (rowidx == 1) {
                 $("#addownerOuter1").show();

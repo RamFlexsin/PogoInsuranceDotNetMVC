@@ -14,6 +14,9 @@
     <link href="~/Content/responsive.css" rel="stylesheet" />
     <link rel="shortcut icon" href="~/favicon.ico" type="image/x-icon">
     <script src="https://kit.fontawesome.com/fbb15fc2fb.js" crossorigin="anonymous"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+
+    <script src="~/Scripts/JS/Common.js"></script>
 </head>
 <body>
 
@@ -31,19 +34,24 @@
                 <div class="businessStructure">
                     <h3 class="m-20">Number of Owners</h3>
                     <div class="numberOwners">
-                        <a class="btn-decrease" data-decrease onclick="return false">-</a>
+                        <a class="btn-decrease" data-decrease onclick="decrease('#NumberofOwners')">-</a>
                         @Html.TextBoxFor(m => m.NumberofOwners, new { value = @Model.NumberofOwners })
-                        @*<input asp-for="NumberofOwners" data-value type="text" value="@Model.NumberofOwners" />*@
-                        <a class="btn-increase" data-increase>+</a>
+                        <a class="btn-increase" data-increase onclick="increase('#NumberofOwners')">+</a>
                     </div>
 
-                    <h3 class="m-10">Number of Employees</h3>
+                    <h3 class="m-10">
+                        Number of Employees
+                        <i class="tooltip">
+                            ?
+                            <span class="left">Enter the number of W2 employees that work for your business. Do not include owners.</span>
+                        </i>
+                    </h3>
                     <h4 class="m-20">(Not including owners, subcontractors, or independent contractors)</h4>
                     <div class="numberOwners">
-                        <a class="btn-decrease" data-decrease>-</a>
+                        <a class="btn-decrease" data-decrease onclick="decrease('#NumberofEmployees')">-</a>
                         @Html.TextBoxFor(m => m.NumberofEmployees, new { value = @Model.NumberofEmployees })
-                        @*<input asp-for="NumberofEmployees" data-value type="text" value="@Model.NumberofEmployees" />*@
-                        <a class="btn-increase" data-increase>+</a>
+                        <a class="btn-increase" data-increase onclick="increase('#NumberofEmployees')">+</a>
+
                     </div>
                     <h3 class="m-20">Does the business hire subcontractors?</h3>
                     <div class="yesnoBxOuter m-50">
@@ -77,9 +85,6 @@
         Copyright 2022 / <a href="">Privacy</a> / <a href="">Terms</a>
     </footer>
     <!--Footer End Here-->
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
-
-    <script src="~/Scripts/function.js"></script>
 </body>
 
 </html>

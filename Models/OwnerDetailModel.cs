@@ -1,18 +1,26 @@
-﻿using System;
+﻿using PogoApp_MVC.Utilities;
+using System;
 using System.Collections.Generic;
 
 namespace PogoInsurance.Models
 {
     public class OwnerDetailModel
     {
-        public string PartnershipPercent { get; set; }
-        public IEnumerable<LocationList> LocationLists { get; set; }
+        public List<LocationList> LocationLists { get; set; }
+        public List<TitleList> Titles { get; set; }
+        public List<Datum> TypeOfWork { get; set; }
         public List<OwnerDetail> OwnerDetails { get; set; }
     }
     public class LocationList
     {
         public int LocationId { get; set; }
         public string LocationName { get; set; }
+    }
+   
+    public class TitleList
+    {
+        public string Value { get; set; }
+        public string Title { get; set; }
     }
     public class OwnerDetail
     {
@@ -26,6 +34,7 @@ namespace PogoInsurance.Models
         public string OwnerPayroll { get; set; }
         public string DateOfBirth { get; set; }
         public int LocationId { get; set; }
-        public int TitleId { get; set; }
+        public string TitleId { get; set; }
+        public string PartnershipPercent { get; set; }
     }
 }

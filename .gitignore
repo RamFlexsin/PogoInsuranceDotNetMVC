@@ -4,3 +4,6 @@
 
 /obj/Debug
 /obj/Release
+/SavedData
+/bin
+/.vs
